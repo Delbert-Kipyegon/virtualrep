@@ -1,6 +1,6 @@
 const otp = document.querySelectorAll('.otp_field');
 
-// Initially focus first input
+// Initially focus first input field
 otp[0].focus();
 
 otp.forEach((field, index) => {
