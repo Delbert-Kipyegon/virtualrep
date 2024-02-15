@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div class="form">
+  <div class="form" action="./php/login.php">
     <h2>Login Form</h2>
     <form action="post" autocomplete="off">
       <div class="error-text">Error</div>
@@ -24,14 +24,14 @@
         <input type="password" name="pass" placeholder="Password" required>
       </div>
       <div class="submit">
-        <input type="submit" value="Login Now" class="button">
+        <input type="submit" value="Login Now" class="button submit-button">
       </div>
     </form>
     <div class="link">Not signed up? <a href="register.php">Signup now</a></div>
   </div>
 
 
-  <script src="js/login.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
