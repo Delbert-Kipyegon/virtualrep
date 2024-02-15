@@ -30,7 +30,7 @@
     <div class="form">
       <h2>Signup Form</h2>
       <p>It's free and always will be.</p>
-      <form action="" enctype="multipart/form-data" autocomplete="off">
+      <form action="./php/signup.php" method="post"  autocomplete="on">
         <div class="error-text">Error</div>
       <div class="grid-details">
         <div class="input">
@@ -60,17 +60,11 @@
             <input type="password" name="cpass" placeholder="Confirm Password" required>
         </div>
       </div>
-      <div class="profile-img">
-        <div class="file-upload">
-            <input name="image" id="image-preview" type="file" class="file-input"  required oninvalid="this.setCustomValidity('Select an Profile Image')"oninput="this.setCustomValidity('')"/>
-            <i class="fas fa-user-edit"></i>
-        </div>
-        </div>
         <div class="submit">
       <input type="submit" value="Signup Now" class="button">
     </div>
     </form>
-    <div class="link">Already signed up? <a href="login.php">Login now</a></div>
+    <div class="link">Already signed up? <a href="login_page.html">Login now</a></div>
     </div>
 
   <!-- form end -->
@@ -88,6 +82,6 @@
     });
     </script>
 
-  <script src="js/register.js"></script>
+  <script src="./js/register.js"></script>
   </body>
 </html>
