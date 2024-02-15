@@ -1,6 +1,6 @@
 const form = document.getElementsByClassName("form");
 const submitbtn = document.getElementsByClassName("submit-button");
-errortxt = form.querySelector(".error-text");
+const errortxt = document.getElementsByClassName("error-text");
 
 form.onsubmit = (e) => {
 	e.preventDefault(); //stops the default action
