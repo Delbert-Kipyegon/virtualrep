@@ -16,7 +16,7 @@ body {
 }
 ::selection {
   color: #ececec;
-  background: #00b3ff;
+  background: #a200ff;
 }
 .form {
   position: relative;
@@ -143,7 +143,7 @@ body {
   color: #f2f3f7;
   width: 100%;
   font-size: 17px;
-  background: #006692;
+  background: #a200ff;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 13px;
@@ -156,7 +156,7 @@ body {
   font-size: 17px;
 }
 .form .link a {
-  color: #006692;
+  color: #a200ff;
 }
 .form .link a:hover {
   text-decoration: underline;

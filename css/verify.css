@@ -22,7 +22,7 @@
   margin: 0;
 }
 .otp_field:valid {
-  border-color: #3095d8;
+  border-color: #a200ff;
   box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.25);
 }
 /* .form form input.resend_btn {
