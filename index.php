@@ -48,7 +48,7 @@ if (mysqli_num_rows($qry) > 0) {
     <nav style="background: #a200ff; " class="navbar navbar-expand-lg fixed-top">
         <!-- Brand -->
         <div class="container">
-            <a class="navbar-brand" href="index.html">Welcome:
+            <a class="navbar-brand" href="#">Welcome:
                 <?php echo $first_name; ?>
             </a>
 
