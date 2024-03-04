@@ -10,6 +10,7 @@ $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'
 if (mysqli_num_rows($qry) > 0) {
     $row = mysqli_fetch_assoc($qry);
     $first_name = $row['fname'];
+    $data = $row['data'];
     if ($row) {
         $_SESSION['Role'] = $row['Role'];
         if ($row['verification_status'] != 'Verified') {
@@ -181,7 +182,9 @@ if (mysqli_num_rows($qry) > 0) {
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="fun-fact-item style-1">
-                                    <h3>4000</h3>
+                                    <h3>
+                                        <?php echo $data; ?>
+                                    </h3>
                                     <span>Downloads</span>
                                 </div>
                             </div>
