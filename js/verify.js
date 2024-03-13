@@ -1,22 +1,22 @@
-// const otp = document.querySelectorAll(".otp_field");
+const otp = document.querySelectorAll(".otp_field");
 
-// // Initially focus first input field
-// otp[0].focus();
+// Initially focus first input field
+otp[0].focus();
 
-// otp.forEach((field, index) => {
-// 	field.addEventListener("keydown", (e) => {
-// 		if (e.key >= 0 && e.key <= 9) {
-// 			otp[index].value = "";
-// 			setTimeout(() => {
-// 				otp[index + 1].focus();
-// 			}, 4);
-// 		} else if (e.key === "Backspace") {
-// 			setTimeout(() => {
-// 				otp[index - 1].focus();
-// 			}, 4);
-// 		}
-// 	});
-// });
+otp.forEach((field, index) => {
+	field.addEventListener("keydown", (e) => {
+		if (e.key >= 0 && e.key <= 9) {
+			otp[index].value = "";
+			setTimeout(() => {
+				otp[index + 1].focus();
+			}, 4);
+		} else if (e.key === "Backspace") {
+			setTimeout(() => {
+				otp[index - 1].focus();
+			}, 4);
+		}
+	});
+});
 
 // const form = document.querySelector(".form form"),
 // 	submitbtn = form.querySelector(".submit .button"),
@@ -35,7 +35,7 @@
 // 			if (xhr.status == 200) {
 // 				let data = xhr.response;
 // 				if (data == "success") {
-// 					location.href = "./index.php";
+// 					location.href = "./homepage.php";
 // 				} else {
 // 					errortxt.textContent = data;
 // 					errortxt.style.display = "block";

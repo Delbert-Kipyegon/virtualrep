@@ -15,7 +15,7 @@ if (!empty($Email) && !empty($Password)) {
             echo "success";
 
             //redirect to index.php
-            header("Location: ../index.php");
+            header("Location: ../homepage.php");
         }
     } else {
         echo "Email or Password is Incorrect! ";

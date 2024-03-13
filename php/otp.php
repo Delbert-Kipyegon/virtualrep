@@ -22,7 +22,7 @@ if (!empty($otp)) {
                     $_SESSION['unique_id'] = $row['unique_id'];
                     $_SESSION['verification_status'] = $row['verification_status'];
                     echo "success";
-                    header("Location: ../index.php");
+                    header("Location: ../homepage.php");
                 }
             }
         }

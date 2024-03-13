@@ -14,7 +14,7 @@
       $_SESSION['verification_status'] = $row['verification_status'];
       if($row['verification_status'] == 'Verified')
       {
-        header ("Location: index.php");
+        header ("Location: homepage.php");
       } 
   }
   }

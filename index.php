@@ -1,27 +1,3 @@
-<?php
-session_start();
-include 'php/db.php';
-$unique_id = $_SESSION['unique_id'];
-$email = $_SESSION['email'];
-if (empty($unique_id)) {
-    header("Location: login.php");
-}
-$qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'");
-if (mysqli_num_rows($qry) > 0) {
-    $row = mysqli_fetch_assoc($qry);
-    $first_name = $row['fname'];
-    $data = $row['data'];
-    $phone = $row['phone'];
-    
-    if ($row) {
-        $_SESSION['Role'] = $row['Role'];
-        if ($row['verification_status'] != 'Verified') {
-            header("Location: verify.php");
-        }
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -51,7 +27,7 @@ if (mysqli_num_rows($qry) > 0) {
     <nav style="background: #a200ff; " class="navbar navbar-expand-lg fixed-top">
         <!-- Brand -->
         <div class="container">
-            <a class="navbar-brand" href="#"> Mobile App
+            <a class="navbar-brand" href="#"> Welcome
             </a>
 
             <!-- Toggler/collapsibe Button -->
@@ -81,7 +57,10 @@ if (mysqli_num_rows($qry) > 0) {
                         <a class="nav-link" data-scroll-nav="5" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item logout-btn">
-                        <a class="nav-link" href="php/logout.php">Login</a>
+                        <a class="nav-link" href="php/login.php">Login</a>
+                    </li>
+                    <li class="nav-item logout-btn">
+                        <a class="nav-link" href="php/signup.php">Sign up</a>
                     </li>
                 </ul>
             </div>
@@ -104,9 +83,8 @@ if (mysqli_num_rows($qry) > 0) {
                             itaque commodi voluptatem aliquid dignissimos blanditiis, iste at impedit, velit earum harum
                             corrupti odio non? Facere, sequi repellat. </p>
                         <div class="home-btn">
-                            <a href="#" class="btn btn-1" data-scroll-goto="3">Download App</a>
-                            <button type="button" class="btn btn-1 video-play-button" onclick="video_play()"><i
-                                    class="fas fa-play"></i></button>
+                            <a href="php/login.php" class="btn btn-1">Login</a>
+                            <a href="php/signup.php" class="btn btn-1">Sign Up</a>
                         </div>
                     </div>
                 </div>
@@ -184,7 +162,7 @@ if (mysqli_num_rows($qry) > 0) {
                             <div class="col-sm-6">
                                 <div class="fun-fact-item style-1">
                                     <h3>
-                                        <?php echo $data; ?>
+                                        500
                                     </h3>
                                     <span>Downloads</span>
                                 </div>
@@ -680,7 +658,7 @@ if (mysqli_num_rows($qry) > 0) {
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>
                             <h4>Call us on</h4>
-                            <p><?php echo $phone; ?> </p>
+                            <p> 01234567890 </p>
                         </div>
                     </div>
                 </div>
@@ -690,7 +668,7 @@ if (mysqli_num_rows($qry) > 0) {
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text"  name="name" placeholder="Your Name" class="form-control">
+                                        <input type="text" name="name" placeholder="Your Name" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -709,14 +687,16 @@ if (mysqli_num_rows($qry) > 0) {
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input type="text" name="subject" placeholder="Your subject" class="form-control">
+                                        <input type="text" name="subject" placeholder="Your subject"
+                                            class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <textarea placeholder="Your message" name="message" class="form-control"></textarea>
+                                        <textarea placeholder="Your message" name="message"
+                                            class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>

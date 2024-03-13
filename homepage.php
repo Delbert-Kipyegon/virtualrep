@@ -4,7 +4,7 @@ include 'php/db.php';
 $unique_id = $_SESSION['unique_id'];
 $email = $_SESSION['email'];
 if (empty($unique_id)) {
-    header("Location: login.php");
+    header("Location: login_page.html");
 }
 $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'");
 if (mysqli_num_rows($qry) > 0) {
@@ -28,7 +28,7 @@ if (mysqli_num_rows($qry) > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Landing Page</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="css1/owl.carousel.min.css">
     <link rel="stylesheet" href="css1/fontAwsome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">

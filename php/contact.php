@@ -16,7 +16,8 @@ $message = $_POST['message'] ?? '';
 // Check if any required field is empty
 if (empty($name) || empty($email) || empty($subject) || empty($message)) {
     echo "Error: Please fill in all required fields.";
-    header("location: ../index.php");
+    // header("location: ../index.php");
+    // alert("Please fill in all required fields.");
     exit;
 }
 
