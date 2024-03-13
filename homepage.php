@@ -51,7 +51,8 @@ if (mysqli_num_rows($qry) > 0) {
     <nav style="background: #a200ff; " class="navbar navbar-expand-lg fixed-top">
         <!-- Brand -->
         <div class="container">
-            <a class="navbar-brand" href="#"> Mobile App
+            <a class="navbar-brand" href="#">Welcome:
+                <?php echo $first_name; ?>
             </a>
 
             <!-- Toggler/collapsibe Button -->
@@ -81,7 +82,7 @@ if (mysqli_num_rows($qry) > 0) {
                         <a class="nav-link" data-scroll-nav="5" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item logout-btn">
-                        <a class="nav-link" href="php/logout.php">Login</a>
+                        <a class="nav-link" href="php/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

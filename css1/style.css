@@ -49,6 +49,14 @@ body.dark {
     --black-400: #bbb;
 }
 
+
+
+/* //additions */
+
+.landing-img{
+    height: 500px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -1220,12 +1228,12 @@ Toggle Theme start ligt and dark mode
         background-color: var(--main-color);
     }
     .home-img .circle {
-        height: 320px;
-        width: 320px;
+        height: 1020px;
+        width: 1320px;
     }
     .home-img .circle::before {
-        left: 18px;
-        top: 18px;
+        left: 180px;
+        top: 188px;
         transform-origin: 142px 142px;
     }
     .home-text h1 {

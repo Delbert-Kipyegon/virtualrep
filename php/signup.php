@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once "db.php";
+require_once "./mail.php";
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email = $_POST['email'];
@@ -9,6 +10,7 @@ $password = md5($_POST['pass']);
 $cpassword = md5($_POST['cpass']);
 $Role = 'user';
 $verification_status = '0';
+
 
 // checking fields are not empty
 if (!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empty($password) && !empty($cpassword)) {
@@ -40,16 +42,20 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !emp
 
                         //mail function
                         if ($otp) {
-                            $receiver = $email;
-                            $subject = "From: $fname $lname <$email>";
-                            $body = "Name " . " $fname $lname  \n Email" . " $email \n Otp" . " $otp";
-                            $sender = "From: lemtukeicyprian@gmail.com";
+                            // $receiver = $email;
+                            $name = $fname;
+                            $email = $email;
+                            $subject = "One Time Password";
+                            $message = "Find your OTP Here \nOTP: $otp";
+                            // $sender = "From: lemtukeicyprian@gmail.com";
 
-                            if (mail($receiver, $subject, $body, $sender)) {
-                                echo "success";
-                            } else {
-                                echo "Email Problem!" . mysqli_error($conn);
+                            try {
+                                sendEmail($name, $email, $phone, $subject, $message);
+                                echo "Email sent successfully!";
+                            } catch (Exception $e) {
+                                echo "An error occurred while sending the email: " . $e->getMessage();
                             }
+                            
                         }
 
                         //redirect to verify.php
