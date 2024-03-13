@@ -12,7 +12,9 @@ if (mysqli_num_rows($qry) > 0) {
     $first_name = $row['fname'];
     $data = $row['data'];
     $phone = $row['phone'];
-    
+    $role = $row['Role'];
+    $amount = $row['Amount'];
+
     if ($row) {
         $_SESSION['Role'] = $row['Role'];
         if ($row['verification_status'] != 'Verified') {
@@ -192,7 +194,9 @@ if (mysqli_num_rows($qry) > 0) {
                             </div>
                             <div class="col-sm-6">
                                 <div class="fun-fact-item style-2">
-                                    <h3>200</h3>
+                                    <h3>
+                                        <?php echo $amount; ?>
+                                    </h3>
                                     <span>Likes</span>
                                 </div>
                             </div>
@@ -681,7 +685,9 @@ if (mysqli_num_rows($qry) > 0) {
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>
                             <h4>Call us on</h4>
-                            <p><?php echo $phone; ?> </p>
+                            <p>
+                                <?php echo $phone; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -691,7 +697,7 @@ if (mysqli_num_rows($qry) > 0) {
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input type="text"  name="name" placeholder="Your Name" class="form-control">
+                                        <input type="text" name="name" placeholder="Your Name" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -710,14 +716,16 @@ if (mysqli_num_rows($qry) > 0) {
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input type="text" name="subject" placeholder="Your subject" class="form-control">
+                                        <input type="text" name="subject" placeholder="Your subject"
+                                            class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <textarea placeholder="Your message" name="message" class="form-control"></textarea>
+                                        <textarea placeholder="Your message" name="message"
+                                            class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>
