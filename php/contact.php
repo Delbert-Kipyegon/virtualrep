@@ -76,7 +76,7 @@ function sendEmail($name, $email, $phone, $subject, $message)
 
     // Redirect based on unique_id
     if (empty ($unique_id)) {
-        
+
         header("location: ../homepage.php");
     } else {
         header("location: ../register.html");
