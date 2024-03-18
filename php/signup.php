@@ -11,6 +11,8 @@ $cpassword = md5($_POST['cpass']);
 $Role = 'user';
 $verification_status = '0';
 
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
 
 // checking fields are not empty
 if (!empty ($fname) && !empty ($lname) && !empty ($email) && !empty ($phone) && !empty ($password) && !empty ($cpassword)) {
