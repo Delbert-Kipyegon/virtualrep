@@ -10,10 +10,12 @@ $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'
 if (mysqli_num_rows($qry) > 0) {
     $row = mysqli_fetch_assoc($qry);
     $first_name = $row['fname'];
-    $data = $row['data'];
     $phone = $row['phone'];
     $role = $row['Role'];
-    $amount = $row['Amount'];
+    // $data = $row['data'];
+    // $amount = $row['Amount'];
+    $data = "20";
+    $amount = "20";
 
     if ($row) {
         $_SESSION['Role'] = $row['Role'];

@@ -15,15 +15,15 @@ ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
 // checking fields are not empty
-if (!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !empty($password) && !empty($cpassword)) {
+if (!empty ($fname) && !empty ($lname) && !empty ($email) && !empty ($phone) && !empty ($password) && !empty ($cpassword)) {
     //if email is valid
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         //checking email already exists
         $sql = mysqli_query($conn, "SELECT email FROM users WHERE email = '{$email}'");
         if (mysqli_num_rows($sql) > 0) {
-            
+
             echo "$email - Already Exists!";
-            header("location: ../register.html");   
+            header("location: ../register.html");
         } else {
             if ($password == $cpassword) {
 
@@ -46,7 +46,6 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !emp
                         if ($otp) {
                             // $receiver = $email;
                             $name = $fname;
-                            $email = $email;
                             $subject = "One Time Password";
                             $message = "Find your OTP Here \nOTP: $otp";
                             // $sender = "From: lemtukeicyprian@gmail.com";
@@ -57,7 +56,7 @@ if (!empty($fname) && !empty($lname) && !empty($email) && !empty($phone) && !emp
                             } catch (Exception $e) {
                                 echo "An error occurred while sending the email: " . $e->getMessage();
                             }
-                            
+
                         }
 
                         //redirect to verify.php
