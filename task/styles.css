@@ -1,0 +1,190 @@
+/* Include Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Color variables */
+:root {
+    --main-color: #a200ff;
+    --var1-color: #ffffff;
+    --color-1: #e91e63;
+    --color-2: #f5ae10;
+    --color-3: #09d69c;
+    --bg-dark: #2b2c2f;
+    --text-color: #ffffff;
+    --text-dark: #333;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Dashboard Styles */
+.dashboard {
+    margin-top: 50px;
+}
+
+.task {
+    background: var(--var1-color);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--text-dark);
+    box-shadow: var(--box-shadow);
+}
+
+.task h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.task p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.task a {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--main-color);
+    color: var(--text-white);
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.task a:hover {
+    background-color: var(--var1-color);
+    border-style: solid 1px var(--main-color);
+    box-shadow: var(--box-shadow);
+    color: var(--main-color);
+    /* border-color: var(--main-color); */
+}
+
+/* Task Details Styles */
+.task-details {
+    background: var(--text-color);
+    color: var(--text-dark);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: var(--box-shadow);
+}
+
+.task-details h2 {
+    color: var(--main-color);
+}
+
+.task-details form {
+    margin-top: 20px;
+}
+
+.task-details label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.task-details textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    height: 100px;
+}
+
+.task-details input[type="submit"] {
+    padding: 10px 25px;
+    background-color: var(--color-3);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-details input[type="submit"]:hover {
+    background-color: var(--color-2);
+}
+
+/* Button to go back to the dashboard */
+.btn-back {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 10px 25px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: var(--box-shadow);
+}
+
+.btn-back:hover {
+    background-color: var(--color-1);
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .task, .task-details {
+        padding: 15px;
+    }
+}
+
+
+/* Other styles above... */
+
+.tasks-list {
+    border-top: 1px solid #ccc;
+}
+
+.task {
+    padding: 15px 0;
+}
+
+.task:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+.task h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.25em;
+    color: var(--main-color); /* Or any other color */
+}
+
+.task p {
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.task a.btn {
+    text-decoration: none;
+    color: #fff;
+    background: var(--main-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.task a.btn:hover {
+    background: var(--color-1);
+}
+
+/* Other styles below... */

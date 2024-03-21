@@ -3,7 +3,7 @@ session_start();
 include 'php/db.php';
 $unique_id = $_SESSION['unique_id'];
 $email = $_SESSION['email'];
-if (empty($unique_id)) {
+if (empty ($unique_id)) {
     header("Location: login_page.html");
 }
 $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'");
@@ -71,7 +71,7 @@ if (mysqli_num_rows($qry) > 0) {
                         <a class="nav-link active" data-scroll-nav="0" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-scroll-nav="1" href="#features">Features</a>
+                        <a class="nav-link" href="./task/user_dashboard.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-scroll-nav="2" href="#screenshots">Screenshots</a>
@@ -109,7 +109,7 @@ if (mysqli_num_rows($qry) > 0) {
                             itaque commodi voluptatem aliquid dignissimos blanditiis, iste at impedit, velit earum harum
                             corrupti odio non? Facere, sequi repellat. </p>
                         <div class="home-btn">
-                            <a href="#" class="btn btn-1" data-scroll-goto="3">Download App</a>
+                            <a href="../task/index.php" target="_blank" class="btn btn-1">Dashboard</a>
                             <button type="button" class="btn btn-1 video-play-button" onclick="video_play()"><i
                                     class="fas fa-play"></i></button>
                         </div>
