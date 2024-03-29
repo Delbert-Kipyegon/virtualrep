@@ -13,6 +13,7 @@ require_once './user_dashboard.php';
     <title>Task Details</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
 </head>
 
@@ -25,7 +26,7 @@ require_once './user_dashboard.php';
         </div>
 
         <?php
-        $task_id = isset ($_GET['task_id']) ? $_GET['task_id'] : 0;
+        $task_id = isset($_GET['task_id']) ? $_GET['task_id'] : 0;
 
         $task_found = false; // Flag to check if the task is found
         
@@ -78,14 +79,13 @@ require_once './user_dashboard.php';
             ?>
             <!-- Accept Job Button -->
             <div class="flex flex-row gap-5 ">
-                <button id="acceptJobBtn" onclick="acceptJob()"
-                    class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded cursor-pointer">
-                    Accept Job
-                </button>
-                <button id="rejectJobBtn" onclick="rejectJob()"
-                    class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded cursor-pointer">
-                    Reject Job
-                </button>
+                <a href="acceptTask.php?task_id=<?php echo htmlspecialchars($task_id); ?>"
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded cursor-pointer">Accept
+                    Job</a>
+
+                <a href="rejectTask.php?task_id=<?php echo htmlspecialchars($task_id); ?>"
+                    class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded cursor-pointer">Reject Job</a>
+
             </div>
 
 

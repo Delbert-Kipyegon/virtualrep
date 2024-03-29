@@ -3,8 +3,8 @@ session_start();
 include '../php/db.php';
 $unique_id = $_SESSION['unique_id'];
 $email = $_SESSION['email'];
-if (empty ($unique_id)) {
-    header("Location: login_page.html");
+if (empty($unique_id)) {
+    header("Location: ../login_page.html");
 }
 $qry = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = '{$unique_id}'");
 if (mysqli_num_rows($qry) > 0) {
@@ -46,56 +46,76 @@ function countTasksByStatus($tasks, $status)
     }));
 }
 
-$tasks = [
-    [
-        'id' => 1,
-        'company' => 'Company A',
-        'info' => 'Strategy planning meeting for Q3. Discussing new market opportunities and product launches.',
-        'amount' => 100,
-        'meeting_time' => 'April 21, 2024, 10:00 AM',
-        'platform' => 'Zoom',
-        'meeting_link' => 'https://zoom.us/j/1234567890',
-        'agenda_link' => 'https://docs.google.com/document/d/1ABCDEFGH/document',
-        'special_instructions' => 'Please review the market analysis report before the meeting.',
-        'files_link' => 'https://drive.google.com/drive/folders/1HIJKLMNOP',
-        'status' => 'completed',
-    ],
-    [
-        'id' => 2,
-        'company' => 'Company A',
-        'info' => 'Product design brainstorming session. Focus on user experience and design aesthetics.',
-        'amount' => 200,
-        'meeting_time' => 'April 22, 2024, 11:00 AM',
-        'platform' => 'Microsoft Teams',
-        'meeting_link' => 'https://teams.microsoft.com/l/meetup-join/234567890',
-        'agenda_link' => 'https://docs.google.com/document/d/1IJKLMNOPQ/document',
-        'special_instructions' => 'Prepare 3 design proposals to discuss.',
-        'files_link' => 'https://drive.google.com/drive/folders/1QRSTUVWXYZ',
-        'status' => 'rejected',
-    ],
-    [
-        'id' => 3,
-        'company' => 'Company A',
-        'info' => 'Day 3 Meeting information focused on sales targets and key performance indicators for the sales team.',
-        'amount' => 100,
-        'meeting_time' => 'April 23, 2024, 10:00 AM',
-        'platform' => 'Google Meet',
-        'meeting_link' => 'https://meet.google.com/123-456-789',
-        'agenda_link' => 'https://docs.google.com/document/d/1ABCDEFGH2/document',
-        'special_instructions' => 'Have your previous quarter sales reports ready for discussion.',
-        'files_link' => 'https://drive.google.com/drive/folders/1ABCDE12345',
-        'status' => 'accepted',
-    ],
-];
+// $tasks = [
+//     [
+//         'id' => 1,
+//         'company' => 'Company A',
+//         'info' => 'Strategy planning meeting for Q3. Discussing new market opportunities and product launches.',
+//         'amount' => 100,
+//         'meeting_time' => 'April 21, 2024, 10:00 AM',
+//         'platform' => 'Zoom',
+//         'meeting_link' => 'https://zoom.us/j/1234567890',
+//         'agenda_link' => 'https://docs.google.com/document/d/1ABCDEFGH/document',
+//         'special_instructions' => 'Please review the market analysis report before the meeting.',
+//         'files_link' => 'https://drive.google.com/drive/folders/1HIJKLMNOP',
+//         'status' => 'completed',
+//     ],
+//     [
+//         'id' => 2,
+//         'company' => 'Company A',
+//         'info' => 'Product design brainstorming session. Focus on user experience and design aesthetics.',
+//         'amount' => 200,
+//         'meeting_time' => 'April 22, 2024, 11:00 AM',
+//         'platform' => 'Microsoft Teams',
+//         'meeting_link' => 'https://teams.microsoft.com/l/meetup-join/234567890',
+//         'agenda_link' => 'https://docs.google.com/document/d/1IJKLMNOPQ/document',
+//         'special_instructions' => 'Prepare 3 design proposals to discuss.',
+//         'files_link' => 'https://drive.google.com/drive/folders/1QRSTUVWXYZ',
+//         'status' => 'rejected',
+//     ],
+//     [
+//         'id' => 3,
+//         'company' => 'Company A',
+//         'info' => 'Day 3 Meeting information focused on sales targets and key performance indicators for the sales team.',
+//         'amount' => 100,
+//         'meeting_time' => 'April 23, 2024, 10:00 AM',
+//         'platform' => 'Google Meet',
+//         'meeting_link' => 'https://meet.google.com/123-456-789',
+//         'agenda_link' => 'https://docs.google.com/document/d/1ABCDEFGH2/document',
+//         'special_instructions' => 'Have your previous quarter sales reports ready for discussion.',
+//         'files_link' => 'https://drive.google.com/drive/folders/1ABCDE12345',
+//         'status' => 'accepted',
+//     ],
+// ];
 
+$taskQuery = "SELECT * FROM tasks WHERE (SELECT id FROM users WHERE unique_id = '{$unique_id}') = assigned_to";
+$taskResult = $conn->query($taskQuery);
+
+$tasks = [];
+if ($taskResult->num_rows > 0) {
+    while ($taskRow = $taskResult->fetch_assoc()) {
+        $tasks[] = $taskRow;
+    }
+}
 // Counters for different statuses
 $acceptedTasksCount = countTasksByStatus($tasks, 'accepted');
 $rejectedTasksCount = countTasksByStatus($tasks, 'rejected');
 $completedTasksCount = countTasksByStatus($tasks, 'completed');
 $totalTasksCount = count($tasks);
 
+if (isset($_SESSION['message'])) {
+    echo "<p class='bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative'>" . $_SESSION['message'] . "</p>";
+    unset($_SESSION['message']);
+}
 
-if (empty ($includeFromTaskDetails)) {
+if (isset($_SESSION['error'])) {
+    echo "<p class='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative'>" . $_SESSION['error'] . "</p>";
+    unset($_SESSION['error']);
+}
+
+
+
+if (empty($includeFromTaskDetails)) {
     // HTML and direct output here will only be executed
     // if $includeFromTaskDetails is not set or is false.
     ?>
@@ -117,6 +137,7 @@ if (empty ($includeFromTaskDetails)) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
         <link href="./output.css" rel="stylesheet">
         <link href="../css1/style.css" rel="stylesheet">
     </head>
@@ -192,7 +213,6 @@ if (empty ($includeFromTaskDetails)) {
 
             <h2 class="text-xl font-semibold my-4">Available Jobs:</h2>
 
-            <!-- Task list -->
             <!-- Task list -->
             <div class="space-y-4">
                 <?php foreach ($tasks as $task): ?>
