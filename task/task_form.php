@@ -1,7 +1,13 @@
-<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-5">
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8 mt-2">
     <h2 class="text-2xl font-semibold mb-6">Add New Task</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"
         class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+
+        <div>
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Task Name:</label>
+            <input type="text" id="name" name="name" required
+                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        </div>
 
         <!-- Company -->
         <div>

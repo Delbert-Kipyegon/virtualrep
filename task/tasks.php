@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <div class="container mx-auto my-8">
-        <h1 class="text-xl font-bold mb-4">Tasks Dashboard</h1>
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-6">Tasks Dashboard</h1>
 
         <!-- Button to show the add task form -->
         <button id="showFormBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -23,7 +23,7 @@
         </button>
 
         <!-- The add task form -->
-        <div id="addTaskForm">
+        <div id="addTaskForm" class="mt-4">
             <?php include 'task_form.php'; ?>
         </div>
 
@@ -35,6 +35,7 @@
                 echo '<table class="min-w-full table-auto">';
                 echo '<thead class="bg-gray-200">';
                 echo '<tr>';
+                echo '<th class="px-4 py-2">Task Name</th>';
                 echo '<th class="px-4 py-2">Company</th>';
                 echo '<th class="px-4 py-2">Info</th>';
                 echo '<th class="px-4 py-2">Amount</th>';
@@ -52,6 +53,7 @@
 
                 while ($row = $result->fetch_assoc()) {
                     echo '<tr>';
+                    echo '<td class="border px-4 py-2">' . $row["name"] . '</td>';
                     echo '<td class="border px-4 py-2">' . $row["company"] . '</td>';
                     echo '<td class="border px-4 py-2">' . $row["info"] . '</td>';
                     echo '<td class="border px-4 py-2">' . $row["amount"] . '</td>';
@@ -88,5 +90,6 @@
         });
     </script>
 </body>
+
 
 </html>

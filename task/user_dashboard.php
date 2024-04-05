@@ -12,8 +12,6 @@ if (mysqli_num_rows($qry) > 0) {
     $first_name = $row['fname'];
     $phone = $row['phone'];
     $role = $row['Role'];
-    // $data = $row['data'];
-    // $amount = $row['Amount'];
     $data = "20";
     $amount = "20";
 
@@ -46,48 +44,6 @@ function countTasksByStatus($tasks, $status)
     }));
 }
 
-// $tasks = [
-//     [
-//         'id' => 1,
-//         'company' => 'Company A',
-//         'info' => 'Strategy planning meeting for Q3. Discussing new market opportunities and product launches.',
-//         'amount' => 100,
-//         'meeting_time' => 'April 21, 2024, 10:00 AM',
-//         'platform' => 'Zoom',
-//         'meeting_link' => 'https://zoom.us/j/1234567890',
-//         'agenda_link' => 'https://docs.google.com/document/d/1ABCDEFGH/document',
-//         'special_instructions' => 'Please review the market analysis report before the meeting.',
-//         'files_link' => 'https://drive.google.com/drive/folders/1HIJKLMNOP',
-//         'status' => 'completed',
-//     ],
-//     [
-//         'id' => 2,
-//         'company' => 'Company A',
-//         'info' => 'Product design brainstorming session. Focus on user experience and design aesthetics.',
-//         'amount' => 200,
-//         'meeting_time' => 'April 22, 2024, 11:00 AM',
-//         'platform' => 'Microsoft Teams',
-//         'meeting_link' => 'https://teams.microsoft.com/l/meetup-join/234567890',
-//         'agenda_link' => 'https://docs.google.com/document/d/1IJKLMNOPQ/document',
-//         'special_instructions' => 'Prepare 3 design proposals to discuss.',
-//         'files_link' => 'https://drive.google.com/drive/folders/1QRSTUVWXYZ',
-//         'status' => 'rejected',
-//     ],
-//     [
-//         'id' => 3,
-//         'company' => 'Company A',
-//         'info' => 'Day 3 Meeting information focused on sales targets and key performance indicators for the sales team.',
-//         'amount' => 100,
-//         'meeting_time' => 'April 23, 2024, 10:00 AM',
-//         'platform' => 'Google Meet',
-//         'meeting_link' => 'https://meet.google.com/123-456-789',
-//         'agenda_link' => 'https://docs.google.com/document/d/1ABCDEFGH2/document',
-//         'special_instructions' => 'Have your previous quarter sales reports ready for discussion.',
-//         'files_link' => 'https://drive.google.com/drive/folders/1ABCDE12345',
-//         'status' => 'accepted',
-//     ],
-// ];
-
 $taskQuery = "SELECT * FROM tasks WHERE (SELECT id FROM users WHERE unique_id = '{$unique_id}') = assigned_to";
 $taskResult = $conn->query($taskQuery);
 
@@ -114,10 +70,8 @@ if (isset($_SESSION['error'])) {
 }
 
 
-
 if (empty($includeFromTaskDetails)) {
-    // HTML and direct output here will only be executed
-    // if $includeFromTaskDetails is not set or is false.
+
     ?>
     <!DOCTYPE html>
     <html lang="en" class="light-theme">
@@ -125,7 +79,7 @@ if (empty($includeFromTaskDetails)) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>My Dashboard</title>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
             rel="stylesheet">
 
@@ -180,7 +134,7 @@ if (empty($includeFromTaskDetails)) {
             </div>
         </nav>
         <div class="container mx-auto p-4">
-            <h1 class="text-3xl font-semibold mb-6">Tasks Dashboard</h1>
+            <h1 class="text-3xl font-semibold mb-6">My Tasks</h1>
 
             <!-- Dashboard counters -->
             <div class="justify-between mb-4 grid grid-cols-2 gap-4">
@@ -224,7 +178,7 @@ if (empty($includeFromTaskDetails)) {
                         </span>
 
                         <h3 class="text-xl truncate font-semibold">
-                            <?php echo " {$task['company']}"; ?>
+                            <?php echo " {$task['name']}"; ?>
                         </h3>
 
                         <p class="truncate">
