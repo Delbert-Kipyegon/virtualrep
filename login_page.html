@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,15 +12,16 @@
 <body style="background-color: #a200ff;">
   <div class="form">
     <h2>Login Form</h2>
-    <form method="post" action="php/login.php" autocomplete="off">
-      <div class="error-text">Error</div>
+    <form method="post" id="login-form" autocomplete="off">
+      <!-- Error message placeholder -->
+      <div class="error-text" id="error-text" style="display: none; color: red;"></div>
       <div class="input">
         <label>Email</label>
-        <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
+        <input type="email" name="email" placeholder="Enter Your Email" required>
       </div>
       <div class="input">
         <label>Password</label>
-        <input type="password" class="pass" name="pass" placeholder="Password" required>
+        <input type="password" name="pass" placeholder="Password" required>
       </div>
       <div style="color: #a200ff;" class="submit">
         <input type="submit" value="Login Now" style="background-color: #a200ff;" class="button submit-button">
@@ -30,8 +30,36 @@
     <div class="link">Not signed up? <a href="register.html">Signup now</a></div>
   </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('login-form');
+        const errorText = document.getElementById('error-text');
 
-  <script src="./js/login.js"></script>
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            fetch('php/login.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'homepage.php';
+                } else {
+                    errorText.textContent = data.message;
+                    errorText.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorText.textContent = 'An error occurred while logging in.';
+                errorText.style.display = 'block';
+            });
+        });
+    });
+  </script>
 </body>
-
 </html>

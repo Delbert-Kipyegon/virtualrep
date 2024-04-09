@@ -1,87 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup Form</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="css/loader.css" />
-    <link rel="stylesheet" href="css/form.css" />
-  </head>
-  <body style="background-color: #a200ff;">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="css/loader.css" />
+  <link rel="stylesheet" href="css/form.css" />
+</head>
+<body style="background-color: #a200ff;">
+
+  <div id="notification" style="display: none; background-color: purple; color: white; text-align: center; padding: 10px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    Registration successful! Check your email for the OTP.
+  </div>
 
   <!-- loader -->
-
-  <div id="loader">
-  <div class="loader row-item">
-	<span class="circle"></span>
-	<span class="circle"></span>
-	<span class="circle"></span>
-	<span class="circle"></span>
-	<span class="circle"></span>
-</div>
-</div>
-
+  <!-- <div id="loader">
+    <div class="loader row-item">
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span the class="circle"></span>
+    </div>
+  </div> -->
   <!-- loader end -->
 
   <!-- form start -->
-    <div class="form">
-      <h2>Signup Form</h2>
-      <p>It's free and always will be.</p>
-      <form action="./php/signup.php" method="post"  autocomplete="on">
-        <div class="error-text">Error</div>
+  <div class="form">
+    <h2>Signup Form</h2>
+    <p>It's free and always will be.</p>
+    <form id="register-form" method="post" autocomplete="on">
+      <div class="error-text" style="display: none; color: red;"></div>
       <div class="grid-details">
         <div class="input">
-            <label>First Name</label>
-            <input type="text" name="fname" placeholder="First Name" required pattern="[a-zA-Z'-'\s]*" >
+          <label>First Name</label>
+          <input type="text" name="fname" placeholder="First Name" required pattern="[a-zA-Z'-'\s]*" >
         </div>
         <div class="input">
-            <label>Last Name</label>
-            <input type="text" name="lname" placeholder="Last Name" required pattern="[a-zA-Z'-'\s]*">
+          <label>Last Name</label>
+          <input type="text" name="lname" placeholder="Last Name" required pattern="[a-zA-Z'-'\s]*">
         </div>
       </div>
       <div class="input">
         <label>Email</label>
         <input type="email" name="email" placeholder="Enter Your Email" required>
-    </div>
+      </div>
       <div class="input">
         <label>Phone</label>
-        <input type="phone" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')"oninput="this.setCustomValidity('')">
-    </div>
-    <div class="grid-details">
+        <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" oninvalid="this.setCustomValidity('Enter 11 Digits Number')" oninput="this.setCustomValidity('')">
+      </div>
+      <div class="grid-details">
         <div class="input">
-            <label>Password</label>
-            <input type="password" name="pass" placeholder="Password" required>
+          <label>Password</label>
+          <input type="password" name="pass" placeholder="Password" required>
         </div>
         <div class="input">
-            <label>Confirm Password</label>
-            <input type="password" name="cpass" placeholder="Confirm Password" required>
+          <label>Confirm Password</label>
+          <input type="password" name="cpass" placeholder="Confirm Password" required>
         </div>
       </div>
-        <div class="submit">
-      <input style="background-color: #a200ff;" type="submit" value="Signup Now" class="button">
-    </div>
+      <div class="submit">
+        <input style="background-color: #a200ff;" type="submit" value="Signup Now" class="button">
+      </div>
     </form>
     <div class="link">Already signed up? <a href="login_page.html">Login now</a></div>
-    </div>
-
+  </div>
   <!-- form end -->
 
-
-<script>
-    $(document).ready(function() {
-    //Preloader
-    preloaderFadeOutTime = 1200;
-    function hidePreloader() {
-    var preloader = $('#loader');
-    preloader.fadeOut(preloaderFadeOutTime);
-    }
-    hidePreloader();
-    });
-    </script>
-
-  <script src="./js/register.js"></script>
-  </body>
+  <script src="js/register.js"></script>
+  
+</body>
 </html>

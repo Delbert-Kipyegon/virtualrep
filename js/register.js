@@ -1,37 +1,39 @@
-// const form = document.querySelector('.form form'),
-// submitbtn = form.querySelector('.submit input'),
-// errortxt = form.querySelector('.error-text');
+document.addEventListener("DOMContentLoaded", () => {
+	alert("Hello! I am an alert box!!");
+	document
+		.getElementById("register-form")
+		.addEventListener("submit", function (event) {
+			event.preventDefault();
+			const formData = new FormData(this);
+			const xhr = new XMLHttpRequest();
 
-// // form.onsubmit = (e) =>{
-// //     e.preventDefault();            //stops the default action
+			xhr.open("POST", "php/signup.php", true);
+			xhr.onload = function () {
+				if (xhr.status === 200) {
+					const response = JSON.parse(xhr.responseText);
+					console.log(response);
+					handleResponse(response);
+				}
+			};
+			xhr.onerror = function () {
+				handleError("An error occurred during registration. Please try again.");
+			};
+			xhr.send(formData);
+		});
+});
 
-// // }
+function handleResponse(response) {
+	const errorText = document.querySelector(".error-text");
+	if (response.success === true) {
+		alert("Registration successful! Check your email for the OTP.");
+		console.log("Redirecting...");
+		window.location.href = "../verify.html";
+	} else {
+		errorText.textContent = response.message;
+		errorText.style.display = "block";
+	}
+}
 
-// submitbtn.onclick = () =>{
-//     // start ajax
-
-//     let xhr = new XMLHttpRequest(); // create xml object
-
-//     xhr.open("POST","./Php/signup.php",true);
-//     xhr.onload = () =>{
-
-//         if(xhr.readyState === XMLHttpRequest.DONE){
-//             if(xhr.status === 200){
-//                 let data = xhr.response;
-//                         if(data == "success"){
-//                         location.href = "./verify.php";
-//                         }
-//                     else{
-//                         errortxt.textContent = data;
-//                         errortxt.style.display = "block";
-//                     }
-
-//             }
-//         }
-
-//     }
-//     // send data through ajax to php
-//     let formData = new FormData(form); //creating new object from form data
-//     xhr.send(formData);  //sending data to php
-
-// }
+function handleError(errorMessage) {
+	document.querySelector(".error-text").textContent = errorMessage;
+}
