@@ -5,13 +5,11 @@ require "vendor/autoload.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-function sendEmail($name, $email, $phone, $subject, $message) {
-    session_start();
-    
+function sendEmail($name, $email, $phone, $subject, $message)
+{
+
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
-    
-
 
     $mail = new PHPMailer(true);
 
@@ -45,10 +43,11 @@ function sendEmail($name, $email, $phone, $subject, $message) {
 
     try {
         $mail->send();
-        echo "Email sent";
-        header("location: ../index.php");
+        // echo "Email sent";
+        return true;
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        return false;
     }
 }
 

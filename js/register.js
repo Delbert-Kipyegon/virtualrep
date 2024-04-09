@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-	alert("Hello! I am an alert box!!");
 	document
 		.getElementById("register-form")
 		.addEventListener("submit", function (event) {
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			xhr.onload = function () {
 				if (xhr.status === 200) {
 					const response = JSON.parse(xhr.responseText);
-					console.log(response);
+					console.log(response.sucess);
 					handleResponse(response);
 				}
 			};
@@ -27,7 +26,7 @@ function handleResponse(response) {
 	if (response.success === true) {
 		alert("Registration successful! Check your email for the OTP.");
 		console.log("Redirecting...");
-		window.location.href = "../verify.html";
+		window.location.href = "verify.html";
 	} else {
 		errorText.textContent = response.message;
 		errorText.style.display = "block";
