@@ -1,48 +1,64 @@
-const otp = document.querySelectorAll(".otp_field");
+document.addEventListener("DOMContentLoaded", () => {
+	const otpInputs = document.querySelectorAll(".otp_field");
+	const form = document.querySelector("form");
+	const errorText = document.querySelector(".error-text");
 
-// Initially focus first input field
-otp[0].focus();
+	// Initially focus the first input field
+	otpInputs[0].focus();
 
-otp.forEach((field, index) => {
-	field.addEventListener("keydown", (e) => {
-		if (e.key >= 0 && e.key <= 9) {
-			otp[index].value = "";
-			setTimeout(() => {
-				otp[index + 1].focus();
-			}, 4);
-		} else if (e.key === "Backspace") {
-			setTimeout(() => {
-				otp[index - 1].focus();
-			}, 4);
-		}
+	// Handle keydown events for OTP input fields
+	otpInputs.forEach((field, index) => {
+		field.addEventListener("keydown", (e) => {
+			if (e.key >= "0" && e.key <= "9" && index < otpInputs.length - 1) {
+				setTimeout(() => {
+					otpInputs[Math.min(index + 1, otpInputs.length - 1)].focus();
+				}, 10);
+			} else if (e.key === "Backspace" && index > 0) {
+				setTimeout(() => {
+					otpInputs[index - 1].focus();
+				}, 10);
+			}
+		});
+	});
+
+	// Form submission event handler
+	form.addEventListener("submit", (event) => {
+		event.preventDefault();
+		let formData = new FormData(form); // Create a FormData object
+
+		let xhr = new XMLHttpRequest(); // Create new XMLHttpRequest
+		xhr.open("POST", "php/otp.php", true); // Configure the request
+
+		xhr.onload = () => {
+			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				let response = JSON.parse(xhr.responseText); // Make sure to parse the responseText, not response
+				handleResponse(response);
+			}
+		};
+
+		xhr.onerror = () => {
+			handleError(
+				"An error occurred during OTP verification. Please try again."
+			);
+		};
+
+		xhr.send(formData); // Send the form data
 	});
 });
 
-// const form = document.querySelector(".form form"),
-// 	submitbtn = form.querySelector(".submit .button"),
-// 	errortxt = form.querySelector(".error-text");
+function handleResponse(response) {
+	const errorText = document.querySelector(".error-text");
+	if (response.success) {
+		alert("Verification successful! Redirecting...");
+		window.location.href = "homepage.php"; // Redirect to homepage upon successful verification
+	} else {
+		errorText.textContent = response.message;
+		errorText.style.display = "block"; // Display error message if verification is unsuccessful
+	}
+}
 
-// form.onsubmit = (e) => {
-// 	e.preventDefault(); //stops the default action
-// };
-// submitbtn.onclick = () => {
-// 	// start ajax
-
-// 	let xhr = new XMLHttpRequest(); //create xml object
-// 	xhr.open("POST", "./php/otp.php", true);
-// 	xhr.onload = () => {
-// 		if (xhr.readyState == XMLHttpRequest.DONE) {
-// 			if (xhr.status == 200) {
-// 				let data = xhr.response;
-// 				if (data == "success") {
-// 					location.href = "./homepage.php";
-// 				} else {
-// 					errortxt.textContent = data;
-// 					errortxt.style.display = "block";
-// 				}
-// 			}
-// 		}
-// 	};
-// 	let formData = new FormData(form);
-// 	xhr.send(formData);
-// };
+function handleError(errorMessage) {
+	const errorText = document.querySelector(".error-text");
+	errorText.textContent = errorMessage;
+	errorText.style.display = "block"; // Display error message on XHR error
+}

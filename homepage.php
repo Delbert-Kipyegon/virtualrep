@@ -12,15 +12,13 @@ if (mysqli_num_rows($qry) > 0) {
     $first_name = $row['fname'];
     $phone = $row['phone'];
     $role = $row['Role'];
-    // $data = $row['data'];
-    // $amount = $row['Amount'];
     $data = "20";
     $amount = "20";
 
     if ($row) {
         $_SESSION['Role'] = $row['Role'];
         if ($row['verification_status'] != 'Verified') {
-            header("Location: verify.php");
+            header("Location: verify.html");
         }
     }
 }

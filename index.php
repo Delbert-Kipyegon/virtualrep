@@ -57,10 +57,10 @@
                         <a class="nav-link" data-scroll-nav="5" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item logout-btn">
-                        <a class="nav-link" href="php/login.php">Login</a>
+                        <a class="nav-link" href="login_page.html">Login</a>
                     </li>
                     <li class="nav-item logout-btn">
-                        <a class="nav-link" href="php/signup.php">Sign up</a>
+                        <a class="nav-link" href="register.html">Sign up</a>
                     </li>
                 </ul>
             </div>
@@ -83,8 +83,8 @@
                             itaque commodi voluptatem aliquid dignissimos blanditiis, iste at impedit, velit earum harum
                             corrupti odio non? Facere, sequi repellat. </p>
                         <div class="home-btn">
-                            <a href="php/login.php" class="btn btn-1">Login</a>
-                            <a href="php/signup.php" class="btn btn-1">Sign Up</a>
+                            <a href="login_page.html" class="btn btn-1">Login</a>
+                            <a href="register.html" class="btn btn-1">Sign Up</a>
                         </div>
                     </div>
                 </div>
