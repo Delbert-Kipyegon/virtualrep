@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function handleResponse(response) {
 	const errorText = document.querySelector(".error-text");
 	if (response.success) {
-		alert("Verification successful! Redirecting...");
 		window.location.href = "homepage.php"; // Redirect to homepage upon successful verification
 	} else {
 		errorText.textContent = response.message;

@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function handleResponse(response) {
 	const errorText = document.querySelector(".error-text");
 	if (response.success === true) {
-		alert("Registration successful! Check your email for the OTP.");
-		console.log("Redirecting...");
 		window.location.href = "verify.html"; // Redirect after successful registration
 	} else {
 		errorText.textContent = response.message;

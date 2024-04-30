@@ -64,21 +64,5 @@ if (empty($fname) || empty($lname) || empty($email) || empty($phone) || empty($p
 echo json_encode($response);
 
 
-// // Set session variables
-// $_SESSION['unique_id'] = $random_id;
-// $_SESSION['email'] = $email;
-// $_SESSION['otp'] = $otp;
-
-// // Attempt to send email
-// if (sendEmail($fname, $email, $phone, "One Time Password", "Find your OTP Here \nOTP: $otp")) {
-//     // Email sent successfully
-//     $response = ['success' => true, 'message' => "Registration successful. Email sent successfully."];
-// } else {
-//     // Failed to send email
-//     $response = ['success' => false, 'message' => "Failed to send email. Registration successful."];
-
-// }
-
-
 
 
