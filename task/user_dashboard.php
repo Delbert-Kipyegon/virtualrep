@@ -86,7 +86,6 @@ $totalTasksCount = count($tasks);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css">
     <link href="./output.css" rel="stylesheet">
     <link href="../css1/style.css" rel="stylesheet">
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
 </head>
 
 

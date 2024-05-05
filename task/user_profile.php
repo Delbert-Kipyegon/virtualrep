@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -41,9 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body class="bg-gray-100 font-poppins">
-    <div class="container mx-auto mt-10 p-4">
+    <?php include 'nav.php'; ?>
+
+    <div class="container max-wid mx-auto mt-10 p-4">
+
         <div class="bg-white rounded-lg shadow-md p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">Update Profile</h2>
+            <hr class="mb-6">
             <form action="user_profile.php" method="post" class="space-y-6">
                 <div>
                     <label for="gender" class="block text-sm font-medium text-gray-600">Gender</label>
