@@ -81,11 +81,7 @@ $totalTasksCount = count($tasks);
     <!-- Combine Google Fonts links -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css">
-    <link href="./output.css" rel="stylesheet">
-    <link href="../css1/style.css" rel="stylesheet">
 </head>
 
 
@@ -94,8 +90,7 @@ $totalTasksCount = count($tasks);
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <!-- Logo and Welcome Message -->
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo" />
+            <a href="#" class="flex hover:no-underline items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Welcome,
                     <?php echo $first_name; ?></span>
             </a>
@@ -116,19 +111,19 @@ $totalTasksCount = count($tasks);
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         <a href="../homepage.php"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                            class=" hover:no-underline block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+                            class=" hover:no-underline block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
                     </li>
                     <li>
                         <a href="user_profile.php"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</a>
+                            class=" hover:no-underline block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</a>
                     </li>
                     <li>
                         <a href="../php/logout.php"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
+                            class=" hover:no-underline block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -165,7 +160,7 @@ $totalTasksCount = count($tasks);
                 </p>
             </div>
         </div>
-        <hr class="h-0.5 bg-main">
+        <hr class="h-0.5 bg-purple-700">
 
         <h2 class="text-xl font-semibold my-4">Available Jobs:</h2>
 
@@ -173,9 +168,27 @@ $totalTasksCount = count($tasks);
         <div class="space-y-4">
             <?php foreach ($tasks as $task): ?>
                 <div
-                    class="bg-main flex flex-col md:flex-row justify-between align-middle p-4 rounded-lg shadow-md text-white space-y-2 md:space-y-0 md:space-x-4">
+                    class="bg-purple-700 flex flex-col md:flex-row justify-between align-middle p-4 rounded-lg shadow-md text-white space-y-2 md:space-y-0 md:space-x-4">
 
-                    <span class="bg-white text-black px-3 py-2 rounded self-start md:self-center">
+                    <span class="px-3 py-2 rounded self-start md:self-center
+                        <?php
+                        // Check the status and set the background color accordingly
+                        switch ($task['status']) {
+                            case 'completed':
+                                echo 'bg-green-500 text-white'; // Green background for completed tasks
+                                break;
+                            case 'accepted':
+                                echo 'bg-blue-500 text-white'; // Blue background for accepted tasks
+                                break;
+                            case 'rejected':
+                                echo 'bg-red-500 text-white'; // Red background for rejected tasks
+                                break;
+                            default:
+                                echo 'bg-gray-500'; // Light gray background for pending tasks
+                                break;
+                        }
+                        ?>
+                    ">
                         <?php echo $task['status']; ?>
                     </span>
 
@@ -184,7 +197,10 @@ $totalTasksCount = count($tasks);
                     </h3>
 
                     <p class="truncate">
-                        <?php echo truncateText($task['info'], $maxWordsToDisplay); ?>
+                        <?php
+                        $maxWords = 10;
+                        echo truncateText($task['info'], $maxWords);
+                        ?>
                     </p>
 
                     <p class=""><strong>Amount:</strong> $
@@ -192,7 +208,7 @@ $totalTasksCount = count($tasks);
                     </p>
 
                     <div class="flex justify-end">
-                        <a href="task-details.php?task_id=<?php echo $task['id']; ?>"
+                        <a href="task_details.php?task_id=<?php echo $task['id']; ?>"
                             class="bg-white text-black py-2 px-4 rounded">View Job</a>
                     </div>
                 </div>
@@ -202,18 +218,14 @@ $totalTasksCount = count($tasks);
 
     </div>
 
+    <?php include 'footer.php'; ?>
+
     <script>
         function toggleMenu() {
             const navbar = document.getElementById('navbar');
             navbar.classList.toggle('hidden');
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js"></script>
-    <script src="../js1/owl.carousel.min.js"></script>
-    <script src="../js1/scrollIt.min.js"></script>
-    <script src="../js1/script.js"></script>
 </body>
 
 </html>

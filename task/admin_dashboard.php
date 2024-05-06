@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Bind parameters
-    $stmt->bind_param("ssdsssssssi", $name, $company, $info, $amount, $meeting_time, $platform, $meeting_link, $agenda_link, $special_instructions, $files_link, $assigned_to);
+    $stmt->bind_param("ssssssssssi", $name, $company, $info, $amount, $meeting_time, $platform, $meeting_link, $agenda_link, $special_instructions, $files_link, $assigned_to);
 
     // Execute the statement once and check the result
     if ($stmt->execute()) {
@@ -129,7 +129,9 @@ $userCount = $conn->query("SELECT COUNT(*) as count FROM users")->fetch_assoc()[
             <h1 class="text-white text-3xl font-semibold pl-6 md:pl-0 hover:text-gray-300">Admin</h1>
             <!-- nav -->
             <nav>
-            <a href="../homepage.php" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-purple-700 hover:text-white">Back to Home</a>
+                <a href="../homepage.php"
+                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-purple-700 hover:text-white">Back
+                    to Home</a>
                 <a href="?page=dashboard"
                     class="block py-2.5 px-4 rounded transition duration-200 hover:bg-purple-700 hover:text-white">Dashboard</a>
                 <a href="?page=add_task"
@@ -190,6 +192,8 @@ text-xl font-semibold mb-2">Total Users</h2>';
             </div>
         </div>
     </div>
+
+    <?php include 'footer.php'; ?>
 
     <script src="./script.js"></script>
 </body>

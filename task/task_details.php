@@ -1,8 +1,23 @@
 <?php
-$includeFromTaskDetails = true;
-require_once './user_dashboard.php';
-?>
+include '../php/db.php';
 
+$includeFromTaskDetails = true;
+// Fetch tasks for task_details.php
+$task_id = isset($_GET['task_id']) ? $_GET['task_id'] : 0;
+
+// Fetch the task details from the database based on $task_id
+$taskQuery = "SELECT * FROM tasks WHERE id = {$task_id}";
+$taskResult = $conn->query($taskQuery);
+if (!$taskResult) {
+    die("DB Error: " . mysqli_error($conn));
+}
+
+$tasks = [];
+while ($taskRow = $taskResult->fetch_assoc()) {
+    $tasks[] = $taskRow;
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en" class="light-theme">
@@ -93,18 +108,19 @@ require_once './user_dashboard.php';
             <hr class="h-0.5 bg-main ">
 
             <!-- Task Submission Form -->
-            <div class="mt-4 mx-auto w-[60%] pb-10">
+            <div class="">
                 <h3 class="text-xl pb-6 font-semibold">Submit Task</h3>
                 <form action="submitTask.php" method="POST" class="flex flex-col gap-4">
                     <input type="hidden" name="task_id" value="<?php echo htmlspecialchars($task_id); ?>">
-                    <textarea name="comments" class="resize-none p-2 border rounded"
-                        placeholder="Enter your comments here..." rows="4"></textarea>
+                    <textarea name="comments" class=" p-2 border rounded" placeholder="Enter your comments here..."
+                        rows="4"></textarea>
                     <button type="submit"
-                        class="bg-main hover:bg-purple-500 text-white font-bold py-2 px-4 rounded cursor-pointer">
+                        class="bg-main hover:bg-purple-500 mx-auto text-white font-bold py-2 px-4 rounded cursor-pointer">
                         Submit Task
                     </button>
                 </form>
             </div>
+
             <?php
         }
         ?>

@@ -39,7 +39,6 @@ if (mysqli_num_rows($qry) > 0) {
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <!-- Logo and Welcome Message -->
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Welcome,
                 <?php echo $first_name; ?></span>
         </a>
@@ -60,6 +59,10 @@ if (mysqli_num_rows($qry) > 0) {
                 <li>
                     <a href="../homepage.php"
                         class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                </li>
+                <li>
+                    <a href="user_dashboard.php"
+                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Dashboard</a>
                 </li>
                 <li>
                     <a href="#"
