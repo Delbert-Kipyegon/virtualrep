@@ -28,7 +28,7 @@ $stmt->close();
 // Fetch user's profile data if it exists
 if ($profile_completed) {
     // Prepare and execute the SELECT query to fetch profile data
-    $stmt = $conn->prepare("SELECT gender, paypal_email, location, dob FROM user_data WHERE user_id = (SELECT id FROM users WHERE unique_id = ?)");
+    $stmt = $conn->prepare("SELECT gender, paypal_email, country, dob FROM user_data WHERE user_id = (SELECT id FROM users WHERE unique_id = ?)");
     $stmt->bind_param("s", $unique_id);
     $stmt->execute();
     $data = $stmt->get_result()->fetch_assoc();
@@ -40,23 +40,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect post data
     $gender = $_POST['gender'];
     $paypalEmail = $_POST['paypal_email'];
-    $location = $_POST['location'];
+    $country = $_POST['country'];
     $dob = $_POST['dob'];
     $id = $user_info['id']; // Use the id fetched from the users table
 
-    // Prepare SQL and bind parameters for updating the existing record
-    $stmt = $conn->prepare("UPDATE user_data SET gender = ?, paypal_email = ?, location = ?, dob = ? WHERE user_id = ?");
-    $stmt->bind_param("ssssi", $gender, $paypalEmail, $location, $dob, $id);
+    // if there is no data in user_data table for the user, insert new record
+    $stmt = null;
+
+    if (!$profile_completed) {
+        // Insert data
+        $stmt = $conn->prepare("INSERT INTO user_data (user_id, gender, paypal_email, country, dob) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("issss", $id, $gender, $paypalEmail, $country, $dob);
+    } else {
+        // Update data
+        $stmt = $conn->prepare("UPDATE user_data SET gender = ?, paypal_email = ?, country = ?, dob = ? WHERE user_id = ?");
+        $stmt->bind_param("ssssi", $gender, $paypalEmail, $country, $dob, $id);
+    }
 
     if ($stmt->execute()) {
-        echo '<script>alert("Profile updated!");</script>';
         // Reload the page to show the updated data
         echo '<script>window.location.href = "user_profile.php";</script>';
     } else {
         echo "Error: " . $stmt->error;
     }
+
     $stmt->close();
+
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include 'nav.php'; ?>
 
     <div class="container mx-auto mt-4 p-4">
+        <div class="mb-8">
+            <a href="./user_dashboard.php"
+                class="btn-back bg-purple-500 hover:bg-purple-700 text-white hover:shadow-lg py-2 px-4 mb-4 rounded ">Back
+                to
+                Dashboard</a>
+        </div>
         <div class="bg-white rounded-lg shadow-md p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">User Profile</h2>
             <?php if ($profile_completed): ?>
@@ -87,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>Phone: <?php echo $user_info['phone']; ?></p>
                 <p>Gender: <?php echo $data['gender']; ?></p>
                 <p>PayPal Email: <?php echo $data['paypal_email']; ?></p>
-                <p>Location: <?php echo $data['location']; ?></p>
+                <p>Country: <?php echo $data['country']; ?></p>
                 <p>Date of Birth: <?php echo $data['dob']; ?></p>
                 <hr class="my-6">
                 <form action="user_profile.php" method="post" class="space-y-6 hidden">
@@ -107,8 +125,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             class="block w-full mt-1 p-2 border border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="location" class="block text-sm font-medium text-gray-600">Location</label>
-                        <input type="text" name="location" id="location" required
+                        <label for="country" class="block text-sm font-medium text-gray-600">Country</label>
+                        <input type="text" name="country" id="country" required
                             class="block w-full mt-1 p-2 border border-gray-300 rounded-md">
                     </div>
                     <div>
@@ -117,14 +135,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             class="block w-full mt-1 p-2 border border-gray-300 rounded-md">
                     </div>
                     <div class="flex justify-between">
-                        <button id="closeFormBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Close
+                        <button id="closeFormBtn"
+                            class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-700">Close
                             Form</button>
 
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Complete
+                        <button type="submit"
+                            class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-700">Complete
                             Profile</button>
                     </div>
                 </form>
-                <button id="editProfileBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Edit
+                <button id="editProfileBtn" class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-700">Edit
                     Profile</button>
             <?php else: ?>
                 <p>Name: <?php echo $user_info['fname'] . ' ' . $user_info['lname']; ?></p>
@@ -148,8 +168,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             class="block w-full mt-1 p-2 border border-gray-300 rounded-md">
                     </div>
                     <div>
-                        <label for="location" class="block text-sm font-medium text-gray-600">Location</label>
-                        <input type="text" name="location" id="location" required
+                        <label for="country" class="block text-sm font-medium text-gray-600">country</label>
+                        <input type="text" name="country" id="country" required
                             class="block w-full mt-1 p-2 border border-gray-300 rounded-md">
                     </div>
                     <div>
@@ -158,7 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             class="block w-full mt-1 p-2 border border-gray-300 rounded-md">
                     </div>
                     <div class="flex justify-end">
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Complete
+                        <button type="submit"
+                            class="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-700">Complete
                             Profile</button>
                     </div>
                 </form>
@@ -166,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <!-- <?php include 'footer.php'; ?> -->
+    <?php include 'footer.php'; ?>
 
 
 

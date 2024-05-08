@@ -48,7 +48,7 @@ if (empty($fname) || empty($lname) || empty($email) || empty($phone) || empty($p
         } else {
 
             $insertStmt = $conn->prepare("INSERT INTO users (unique_id, fname, lname, email, phone, password, otp, verification_status, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $insertStmt->bind_param("isssssisi", $random_id, $fname, $lname, $email, $phone, $password, $otp, $verification_status, $role);
+            $insertStmt->bind_param("isssssiss", $random_id, $fname, $lname, $email, $phone, $password, $otp, $verification_status, $role);
 
             if ($insertStmt->execute()) {
                 $response = ['success' => true, 'message' => "Registration successful. Email sent successfully."];

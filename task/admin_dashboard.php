@@ -13,20 +13,38 @@ if (!isset($_SESSION['unique_id']) || $_SESSION['Role'] !== 'admin') {
 // get users
 function getUsers($conn)
 {
-    $sql = "SELECT * FROM users where Role = 'user'";
+    $sql = "SELECT * FROM users WHERE Role = 'user'";
     $result = $conn->query($sql); // Execute the query using the database connection
 
     $users = [];
     if ($result->num_rows > 0) {
         // Loop through each row in the result set
         while ($row = $result->fetch_assoc()) {
+            // Fetch PayPal email for each user
+            $row['paypal_email'] = getPaypalEmail($conn, $row['id']);
             $users[] = $row;
         }
     }
     return $users;
 }
 
-$users = getUsers($conn); // Fetch all users
+// get paypal email for users from user_data table
+function getPaypalEmail($conn, $user_id)
+{
+    $sql = "SELECT paypal_email FROM user_data WHERE user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['paypal_email'];
+    }
+    return null;
+}
+
+$users = getUsers($conn); // Fetch all users with PayPal email
 
 
 //get all tasks
@@ -48,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $special_instructions = filter_input(INPUT_POST, 'special_instructions', FILTER_SANITIZE_STRING);
     $files_link = filter_input(INPUT_POST, 'files_link', FILTER_SANITIZE_URL);
     $assigned_to = filter_input(INPUT_POST, 'assigned_to', FILTER_SANITIZE_NUMBER_INT);
+    
 
     // SQL to insert data
     $sql = "INSERT INTO tasks (name, company, info, amount, meeting_time, platform, meeting_link, agenda_link, special_instructions, files_link, assigned_to) 
@@ -116,13 +135,25 @@ $userCount = $conn->query("SELECT COUNT(*) as count FROM users")->fetch_assoc()[
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Optional: Add additional custom styles */
+        body,
+        html {
+            height: 100%;
+        }
+
+        .full-height {
+            height: 100%;
+        }
+
+        .overflow-scroll {
+            overflow-y: auto;
+        }
     </style>
 </head>
 
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
     <!-- Sidebar -->
-    <div class="md:flex">
+    <div class="md:flex full-height">
         <div id="sidebar"
             class="bg-purple-600 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out h-screen">
             <!-- logo -->
@@ -144,7 +175,7 @@ $userCount = $conn->query("SELECT COUNT(*) as count FROM users")->fetch_assoc()[
             </nav>
         </div>
 
-        <div class="flex-1">
+        <div class="flex-1 full-height overflow-scroll">
             <!-- Toggle Button -->
             <button id="sidebarToggle" class="text-purple-600 p-4 focus:outline-none md:hidden"
                 onclick="toggleSidebar()">
@@ -160,7 +191,7 @@ $userCount = $conn->query("SELECT COUNT(*) as count FROM users")->fetch_assoc()[
                 <?php
                 switch ($page) {
                     case 'add_task':
-                        include 'tasks.php';
+                        include 'tasks_display.php';
                         break;
                     case 'view_users':
                         include 'users_section.php';
@@ -176,9 +207,7 @@ $userCount = $conn->query("SELECT COUNT(*) as count FROM users")->fetch_assoc()[
                         echo '<div class="text-3xl font-bold">' . $taskCount . '</div>';
                         echo '</div>';
                         echo '<div class="bg-white p-4 rounded-lg shadow text-center">';
-                        echo '<h2 class="
-
-text-xl font-semibold mb-2">Total Users</h2>';
+                        echo '<h2 class="text-xl font-semibold mb-2">Total Users</h2>';
                         echo '<div class="text-3xl font-bold">' . $userCount . '</div>';
                         echo '</div>';
                         echo '<div class="bg-white p-4 rounded-lg shadow col-span-2">';
@@ -192,8 +221,6 @@ text-xl font-semibold mb-2">Total Users</h2>';
             </div>
         </div>
     </div>
-
-    <?php include 'footer.php'; ?>
 
     <script src="./script.js"></script>
 </body>

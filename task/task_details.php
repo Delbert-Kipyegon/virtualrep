@@ -6,7 +6,7 @@ $includeFromTaskDetails = true;
 $task_id = isset($_GET['task_id']) ? $_GET['task_id'] : 0;
 
 // Fetch the task details from the database based on $task_id
-$taskQuery = "SELECT * FROM tasks WHERE id = {$task_id}";
+$taskQuery = "SELECT * FROM tasks WHERE id = {$task_id} AND status != 'rejected'";
 $taskResult = $conn->query($taskQuery);
 if (!$taskResult) {
     die("DB Error: " . mysqli_error($conn));
@@ -77,6 +77,41 @@ while ($taskRow = $taskResult->fetch_assoc()) {
                     </p>
                     <p><strong>Files:</strong> <a href="<?php echo htmlspecialchars($task['files_link']); ?>" target="_blank"
                             class="text-blue-400 hover:text-blue-500">Access Files</a></p>
+                    <p><strong>Status:</strong> <?php echo htmlspecialchars($task['status']); ?></p>
+
+                    <?php
+                    // Show job status message based on the task status
+                    if ($task['status'] == 'accepted') {
+                        echo '<p class="text-green-500 font-semibold">Job Accepted</p>';
+                    } elseif ($task['status'] == 'rejected') {
+                        echo '<p class="text-red-500 font-semibold">Job Rejected</p>';
+                    } else {
+                        // Show Accept and Reject buttons if status is pending or any other status
+                        ?>
+                        <div class="flex flex-row gap-5 ">
+                            <button onclick="confirmAction('accept')"
+                                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                                id="acceptJobBtn">Accept Job</button>
+
+                            <button onclick="confirmAction('reject')"
+                                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                                id="rejectJobBtn">Reject Job</button>
+                        </div>
+
+                        <script>
+                            function confirmAction(action) {
+                                var message = action === 'accept' ? 'accept' : 'reject';
+                                if (confirm("Are you sure you want to " + message + " the job?")) {
+                                    // If user confirms, proceed with the action
+                                    window.location.href = action === 'accept' ? "acceptTask.php?task_id=<?php echo htmlspecialchars($task_id); ?>" : "rejectTask.php?task_id=<?php echo htmlspecialchars($task_id); ?>";
+                                }
+                            }
+                        </script>
+                        <?php
+                    }
+                    ?>
+
+
                 </div>
                 <?php
                 break; // Stop the loop after finding the task
@@ -92,19 +127,6 @@ while ($taskRow = $taskResult->fetch_assoc()) {
         // After the task details or "Task not found" message
         if ($task_found) {
             ?>
-            <!-- Accept Job Button -->
-            <div class="flex flex-row gap-5 ">
-                <a href="acceptTask.php?task_id=<?php echo htmlspecialchars($task_id); ?>"
-                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded cursor-pointer">Accept
-                    Job</a>
-
-                <a href="rejectTask.php?task_id=<?php echo htmlspecialchars($task_id); ?>"
-                    class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded cursor-pointer">Reject Job</a>
-
-            </div>
-
-
-
             <hr class="h-0.5 bg-main ">
 
             <!-- Task Submission Form -->
@@ -138,7 +160,9 @@ while ($taskRow = $taskResult->fetch_assoc()) {
             document.getElementById('rejectJobBtn').classList.add('bg-gray-500', 'hover:bg-gray-600');
             document.getElementById('rejectJobBtn').classList.remove('bg-red-500', 'hover:bg-red-600');
             document.getElementById('rejectJobBtn').innerText = 'Reject Job';
-            document.getElementById('rejectJobBtn').disabled = false;
+            document.getElementById('rejectJobBtn').disabled = false
+
+                ;
 
             alert('You have accepted the job!');
         }
