@@ -38,6 +38,7 @@
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <?php echo htmlspecialchars($user['paypal_email']); ?>
                         </td>
+                        
                     </tr>
                 <?php endforeach; ?>
             </tbody>

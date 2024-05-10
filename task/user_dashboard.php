@@ -69,6 +69,22 @@ $rejectedTasksCount = countTasksByStatus($tasks, 'rejected');
 $completedTasksCount = countTasksByStatus($tasks, 'completed');
 $totalTasksCount = count($tasks);
 
+// Check if the user has completed their profile
+$stmt = $conn->prepare("SELECT * FROM user_data WHERE user_id = (SELECT id FROM users WHERE unique_id = ?)");
+$stmt->bind_param("s", $unique_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$profile_completed = $result->num_rows > 0;
+$stmt->close();
+
+// Check if user profile status is 'null', 'pending', 'approved', or 'rejected'
+if ($profile_completed) {
+    $userData = $result->fetch_assoc();
+    $profileStatus = $userData['status'];
+} else {
+    $profileStatus = 'null';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -84,9 +100,8 @@ $totalTasksCount = count($tasks);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css">
 </head>
 
-
 <body class="bg-white font-poppins min-h-[100%] text-black">
-    <div clas="pb-10">
+    <div class="pb-10">
         <!-- Responsive Navbar -->
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -118,6 +133,8 @@ $totalTasksCount = count($tasks);
                             <a href="#"
                                 class=" hover:no-underline block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
                         </li>
+
+
                         <li>
                             <a href="user_profile.php"
                                 class=" hover:no-underline block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</a>
@@ -132,6 +149,38 @@ $totalTasksCount = count($tasks);
         </nav>
 
         <div class="container mx-auto p-4">
+            <?php
+            // Display profile status
+            if ($profileStatus === 'pending') {
+                echo "<div class='bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-4 mb-4 rounded relative'
+                    role='alert'>
+                    <strong class='font-bold'>Attention!</strong>
+                    <span class='block sm:inline'>Your profile is pending approval. You will receive an email notification
+                        once it's approved.</span>
+                </div>";
+            } elseif ($profileStatus === 'null') {
+                echo "<div class='bg-red-100 border border-red-400 text-red-700 px-4 py-4 mb-4 rounded relative'
+                    role='alert'>
+                    <strong class='font-bold'>Attention!</strong>
+                    <span class='block sm:inline'>You need to complete your profile to receive jobs.</span>
+                    <a href='user_profile.php' class='absolute top-0 bottom-0 right-0 px-4 py-3'>Complete Profile</a>
+                </div>";
+            } elseif ($profileStatus === 'rejected') {
+                echo "<div class='bg-red-100 border border-red-400 text-red-700 px-4 py-4 mb-4 rounded relative'
+                    role='alert'>
+                    <strong class='font-bold'>Attention!</strong>
+                    <span class='block sm:inline'>Your profile has been rejected. Please review the provided information and
+                        update your profile accordingly.</span>
+                </div>";
+            } elseif ($profileStatus === 'approved') {
+                echo "<div class='bg-green-100 border border-green-400 text-green-700 px-4 py-4 mb-4 rounded relative'
+                    role='alert'>
+                    <strong class='font-bold'>Congratulations!</strong>
+                    <span class='block sm:inline'>Your profile has been approved.</span>
+                </div>";
+            }
+
+            ?>
             <h1 class="text-3xl font-semibold mb-6">My Tasks</h1>
 
             <!-- Dashboard counters -->
@@ -216,7 +265,9 @@ $totalTasksCount = count($tasks);
                             </p>
 
                             <p class=""><strong>Amount:</strong> $
-                                <?php echo $task['amount']; ?>
+                                <?php
+
+                                echo $task['amount']; ?>
                             </p>
 
                             <div class="flex justify-end">
@@ -227,8 +278,6 @@ $totalTasksCount = count($tasks);
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
-
-
         </div>
     </div>
 
