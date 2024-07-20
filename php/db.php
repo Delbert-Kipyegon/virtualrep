@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "kyc";
+$dbname = "form";
 
 
 // Create connection
