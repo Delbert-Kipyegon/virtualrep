@@ -18,17 +18,17 @@
 
 <body>
 
-    <!-- preloader start -->
-    <!-- <div class="preloader">
-        <span></span>
-    </div> -->
-    <!-- preloader End -->
+
     <!--Navbar-->
     <nav style="background: #a200ff; " class="navbar navbar-expand-lg fixed-top">
         <!-- Brand -->
         <div class="container">
-            <a class="navbar-brand" href="#"> Welcome
+            <a href="#"
+                style="display: flex; justify-content: center; align-items: center; width: 4.5rem; height: 4.5rem; overflow: hidden;">
+                <img src="./img1/logo.png" alt="logo" style="max-width: 100% !important; max-height: 100% !important;">
             </a>
+
+
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -44,15 +44,11 @@
                     <li class="nav-item">
                         <a class="nav-link" data-scroll-nav="1" href="#features">Features</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-scroll-nav="2" href="#screenshots">Screenshots</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" data-scroll-nav="3" href="#testimonials">Testimonials</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-scroll-nav="4" href="#pricing">Pricing</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" data-scroll-nav="5" href="#contact">Contact</a>
                     </li>
@@ -78,10 +74,10 @@
             <div class="row align-items-center">
                 <div class="col-md-7">
                     <div class="home-text">
-                        <h1>Best Mobile App For Your Business</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi voluptatem aliquid dignissimos blanditiis, iste at impedit, velit earum harum
-                            corrupti odio non? Facere, sequi repellat. </p>
+                        <h1>Welcome to VirtualRep</h1>
+                        <p>Are you looking for a flexible and profitable way to work from home? Join VirtualRep and
+                            start making good money by representing Individuals or companies in online meetings!
+                        </p>
                         <div class="home-btn">
                             <a href="login_page.html" class="btn btn-1">Login</a>
                             <a href="register.html" class="btn btn-1">Sign Up</a>
@@ -91,7 +87,7 @@
                 <div class="col-md-5 text-center">
                     <div class="home-img">
                         <div class="circle"></div>
-                        <img class="landing-img" src="./zoom-fatique1.png" alt="Landing">
+                        <img class="landing-img" src="./img1/zoom-fatique1.png" alt="Landing">
                     </div>
                 </div>
             </div>
@@ -105,7 +101,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h2>Awesome <span>Features</span></h2>
+                        <h2>Why <span>Us?</span></h2>
                     </div>
                 </div>
             </div>
@@ -113,27 +109,29 @@
                 <div class="owl-carousel features-carousel">
                     <div class="features-item">
                         <div class="icon"><i class="fas fa-code"></i></div>
-                        <h3>Clean Code</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
+                        <h3>Earn Good Money</h3>
+                        <p>Represent companies in Zoom calls, Google Meet sessions, and more.
+                        </p>
                     </div>
                     <div class="features-item">
                         <div class="icon"><i class="fas fa-edit"></i></div>
-                        <h3>Auto Install System</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
+                        <h3>Work Flexibly</h3>
+                        <p>Enjoy the freedom of working from home, choosing assignments that fit your schedule.
+                        </p>
                     </div>
                     <div class="features-item">
                         <div class="icon"><i class="fas fa-paint-brush"></i></div>
-                        <h3>Pixel perfect Design</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
+                        <h3>Professional Growth</h3>
+                        <p>Gain experience by handling various types of meetings and representing
+                            organizations.
+                        </p>
                     </div>
                     <div class="features-item">
                         <div class="icon"><i class="fas fa-check"></i></div>
-                        <h3>Fast Load App</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
+                        <h3>Secure Transactions</h3>
+                        <p>Our payment process via PayPal is safe, quick, and reliable. Only the best for the best
+                            people.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -145,44 +143,41 @@
     <section class="fun-facts section-padding">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-5">
-                    <div class="fun-facts-img text-center">
-                        <img src="img1/app-screenshots/2.png" alt="Fun Facts">
-                    </div>
-                </div>
+
                 <div class="col-lg-6 col-md-7">
                     <div class="section-title">
-                        <h2>Fun <span>Facts</span> </h2>
+                        <h2>For <span> Employers</span> </h2>
                     </div>
                     <div class="fun-facts-text">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio quibusdam ex ea dolorum
-                            laudantium asperiores consequuntur et maiores cupiditate repellendus. Architecto expedita
-                            sit at ad sed aliquid suscipit obcaecati vero?</p>
+                        <p>If you want to list job openings on our website, please contact us via email. Our team will
+                            handle the advertisement process, ensuring your listings reach the right candidates quickly
+                            and efficiently.
+                        </p>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="fun-fact-item style-1">
                                     <h3>
-                                        500
+                                        19
                                     </h3>
-                                    <span>Downloads</span>
+                                    <span>Companies</span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="fun-fact-item style-2">
-                                    <h3>200</h3>
-                                    <span>Likes</span>
+                                    <h3>173</h3>
+                                    <span>Meetings</span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="fun-fact-item style-3">
-                                    <h3>500</h3>
-                                    <span>Star Rate</span>
+                                    <h3>75</h3>
+                                    <span>Customers </span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="fun-fact-item style-4">
-                                    <h3>150</h3>
-                                    <span>AWARDS</span>
+                                    <h3>97%</h3>
+                                    <span>Efficiency</span>
                                 </div>
                             </div>
                         </div>
@@ -192,44 +187,6 @@
         </div>
     </section>
     <!-- fun factes section End -->
-
-
-    <!-- App screenshots section start -->
-    <section class="app-screenshots section-padding" data-scroll-index="2" id="screenshots">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>App <span>Screenshots</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="owl-carousel screenshots-carousel">
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/1.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/2.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/3.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/1.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/2.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/3.png" alt="screenshots">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- App screenshots section End -->
-
 
     <!-- video pupup start -->
     <div class="video-popup" onclick="video_play()">
@@ -244,52 +201,6 @@
     </div>
     <!-- video pupup End -->
 
-    <!-- App Download Section Start -->
-    <section class="app-download section-padding" data-scroll-index="3">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>Download <span>App</span> </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="app-download-item">
-                        <i class="fab fa-google-play"></i>
-                        <h3>Google Play</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem deleniti quia
-                            excepturi dicta. Ipsum adipisci veniam ullam assumenda, vero vitae iusto dolore! Esse
-                            voluptatem soluta maxime iure eaque doloremque!</p>
-                        <a href="#" class="btn btn-2">Download Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="app-download-item">
-                        <i class="fab fa-apple"></i>
-                        <h3>Apple Store</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem deleniti quia
-                            excepturi dicta. Ipsum adipisci veniam ullam assumenda, vero vitae iusto dolore! Esse
-                            voluptatem soluta maxime iure eaque doloremque!</p>
-                        <a href="#" class="btn btn-2">Download Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="app-download-item">
-                        <i class="fab fa-windows"></i>
-                        <h3>Microsoft Store</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem deleniti quia
-                            excepturi dicta. Ipsum adipisci veniam ullam assumenda, vero vitae iusto dolore! Esse
-                            voluptatem soluta maxime iure eaque doloremque!</p>
-                        <a href="#" class="btn btn-2">Download Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-    <!-- App Download Section End -->
 
     <!-- how it works section start -->
     <section class="how-it-works section-padding">
@@ -305,29 +216,34 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="how-it-works-item line-right">
                         <div class="step">1</div>
-                        <h3>Download</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
+                        <h3>Create an Account</h3>
+                        <p>Sign up easily and create your profile.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="how-it-works-item line-right">
                         <div class="step">2</div>
-                        <h3>Create Profile</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
+                        <h3>Automated Job Matching</h3>
+                        <p>Get automatically assigned to available assignments that fit your skills.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="how-it-works-item line-right">
                         <div class="step">3</div>
-                        <h3>Search Product</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
+                        <h3>Seamless Coordination</h3>
+                        <p>Our platform handles the coordination and scheduling, making it easy for you to focus on the
+                            meetings.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="how-it-works-item">
                         <div class="step">4</div>
-                        <h3>Order</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
+                        <h3>Easy Payments</h3>
+                        <p>Receive payments securely and conveniently through PayPal.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -341,7 +257,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h2>What Our <span>Client</span> Say </h2>
+                        <h2>What Our <span>Clients</span> Say</h2>
                     </div>
                 </div>
             </div>
@@ -349,13 +265,13 @@
                 <div class="owl-carousel testimonials-carousel">
                     <div class="testimonials-item">
                         <div class="img-box">
-                            <img src="img1/testimonial/1.jpg" alt="testimonials">
+
                             <i class="fas fa-quote-right"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
+                        <p>Joining VirtualRep has been a game-changer for our company. We can now manage multiple client
+                            meetings simultaneously, thanks to their professional representatives.</p>
+                        <h3>John Doe</h3>
+                        <span>CEO, Tech Innovators</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -363,17 +279,16 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-
                     </div>
                     <div class="testimonials-item">
                         <div class="img-box">
-                            <img src="img1/testimonial/1.jpg" alt="testimonials">
+
                             <i class="fas fa-quote-right"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
+                        <p>VirtualRep's service has significantly improved our client engagement. Their representatives
+                            are professional and handle meetings efficiently.</p>
+                        <h3>Jane Smith</h3>
+                        <span>COO, Business Solutions</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -381,17 +296,16 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-
                     </div>
                     <div class="testimonials-item">
                         <div class="img-box">
-                            <img src="img1/testimonial/3.jpg" alt="testimonials">
+
                             <i class="fas fa-quote-right"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
+                        <p>We've seen a noticeable increase in client satisfaction since we started using VirtualRep.
+                            Their reps are well-trained and always on point.</p>
+                        <h3>Emily Johnson</h3>
+                        <span>Marketing Director, Creative Agency</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -399,17 +313,16 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-
                     </div>
                     <div class="testimonials-item">
                         <div class="img-box">
-                            <img src="img1/testimonial/3.jpg" alt="testimonials">
+
                             <i class="fas fa-quote-right"></i>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
+                        <p>VirtualRep has been a valuable partner for us. Their representatives handle our meetings
+                            professionally, allowing us to focus on core business activities.</p>
+                        <h3>Michael Brown</h3>
+                        <span>CTO, Digital Enterprises</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -418,147 +331,14 @@
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
     <!-- Testimonials section End -->
 
-    <!-- Pricing section start -->
-    <section class="pricing section-padding" data-scroll-index="4" id="pricing">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>pricing <span>Plan</span> </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-plan">
-                        <div class="pricing-header">
-                            <h3>Basic</h3>
-                        </div>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="price">99</span>
-                            <span class="period">/monthly</span>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="" class="btn btn-2">Get started</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-plan">
-                        <div class="pricing-header">
-                            <h3>Basic</h3>
-                        </div>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="price">99</span>
-                            <span class="period">/monthly</span>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="" class="btn btn-2">Get started</a>
-                        </div>
-                    </div>
-                </div>
 
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-plan">
-                        <div class="pricing-header">
-                            <h3>Premium</h3>
-                        </div>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="price">99</span>
-                            <span class="period">/monthly</span>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="" class="btn btn-2">Get started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Pricing section End -->
-
-    <!-- Team Section Start -->
-    <section class="team section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>Team <span>Member</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="owl-carousel team-carousel">
-                    <div class="team-item">
-                        <img src="img1/team/3.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/4.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/3.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/4.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/3.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- Team Section End -->
 
     <!-- Faq section Start -->
     <section class="faq section-padding">
@@ -566,7 +346,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h2>Frequently <span>Asked</span> Queries</h2>
+                        <h2>Frequently <span>Asked</span> Questions</h2>
                     </div>
                 </div>
             </div>
@@ -575,52 +355,64 @@
                     <div id="accordion">
                         <div class="accordion-item">
                             <div class="accordion-header" data-toggle="collapse" data-target="#collapse-01">
-                                <h3>100% Fluid Responsive - Fits any device perfectly</h3>
+                                <h3>What is VirtualRep?</h3>
                             </div>
                             <div class="collapse show" id="collapse-01" data-parent="#accordion">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
+                                    <p>VirtualRep is a platform that connects businesses with professional
+                                        representatives who handle online meetings on their behalf, allowing companies
+                                        to manage multiple client interactions efficiently.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <div class="accordion-header collapsed" data-toggle="collapse" data-target="#collapse-02">
-                                <h3>Clean Code</h3>
+                                <h3>How do I join VirtualRep?</h3>
                             </div>
                             <div class="collapse" id="collapse-02" data-parent="#accordion">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
+                                    <p>To join VirtualRep, sign up on our website, complete your profile, and pass the
+                                        verification process. Once verified, you'll start receiving job assignments
+                                        matched to your profile.</p>
                                 </div>
                             </div>
                         </div>
-
 
                         <div class="accordion-item">
                             <div class="accordion-header collapsed" data-toggle="collapse" data-target="#collapse-03">
-                                <h3>Flat, modern and clean Design</h3>
+                                <h3>What are the requirements to become a representative?</h3>
                             </div>
                             <div class="collapse" id="collapse-03" data-parent="#accordion">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
+                                    <p>Representatives must have a professional demeanor, excellent communication
+                                        skills, and a reliable internet connection. Experience in customer service or a
+                                        related field is a plus.</p>
                                 </div>
                             </div>
                         </div>
+
                         <div class="accordion-item">
                             <div class="accordion-header collapsed" data-toggle="collapse" data-target="#collapse-04">
-                                <h3>Custom Font support</h3>
+                                <h3>How do I get paid?</h3>
                             </div>
                             <div class="collapse" id="collapse-04" data-parent="#accordion">
                                 <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
+                                    <p>Payments are processed monthly and are based on the number of meetings handled
+                                        and the feedback received. You can track your earnings and payment status
+                                        through your dashboard.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header collapsed" data-toggle="collapse" data-target="#collapse-05">
+                                <h3>What if I have a problem or question?</h3>
+                            </div>
+                            <div class="collapse" id="collapse-05" data-parent="#accordion">
+                                <div class="accordion-body">
+                                    <p>If you encounter any issues or have questions, contact us directly. Our
+                                        support team is here to help you.</p>
                                 </div>
                             </div>
                         </div>
@@ -630,6 +422,7 @@
         </div>
     </section>
     <!-- Faq section End -->
+
 
     <!-- Contact section start -->
     <section class="contact section-padding" data-scroll-index="5">
@@ -648,12 +441,12 @@
                         <div class="contact-info-item">
                             <i class="fas fa-location-arrow"></i>
                             <h4>Company Location</h4>
-                            <p>199 xyz mm, mmmmmm</p>
+                            <p>845 Linn Ave, Oregon City, OR 97045</p>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-envelope"></i>
                             <h4>Write to us at </h4>
-                            <p>info@gmail.com</p>
+                            <p>lemtukeicyprian@gmail.com</p>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>
@@ -721,8 +514,9 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-col">
                         <h3>About Us</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nihil, quasi provident saepe,
-                            omnis commodi voluptatibus fugiat eaque fuga eveniet inventore </p>
+                        <p>Join VirtualRep and start making good money by representing Individuals or companies in
+                            online meetings!
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -735,12 +529,7 @@
                             <li>
                                 <a href="#">Term & condition</a>
                             </li>
-                            <li>
-                                <a href="#">lates blogs</a>
-                            </li>
-                            <li>
-                                <a href="#">App services</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -752,18 +541,14 @@
                                 <a href="#" data-scroll-nav="0">Home</a>
                             </li>
                             <li>
-                                <a href="#" data-scroll-nav="1">Fearutes</a>
+                                <a href="#" data-scroll-nav="1">Features</a>
                             </li>
-                            <li>
-                                <a href="#" data-scroll-nav="2">Screenshots</a>
-                            </li>
+
 
                             <li>
                                 <a href="#" data-scroll-nav="3">Testimonials</a>
                             </li>
-                            <li>
-                                <a href="#" data-scroll-nav="4">Pricing</a>
-                            </li>
+
                             <li>
                                 <a href="#" data-scroll-nav="5">Contact</a>
                             </li>
@@ -793,7 +578,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="copyright-text">&copy;2021 @saadany</p>
+                    <p class="copyright-text">&copy; VirtualRep</p>
                 </div>
             </div>
         </div>

@@ -44,17 +44,13 @@ if (mysqli_num_rows($qry) > 0) {
 
 <body>
 
-    <!-- preloader start -->
-    <!-- <div class="preloader">
-        <span></span>
-    </div> -->
-    <!-- preloader End -->
     <!--Navbar-->
     <nav style="background: #a200ff; " class="navbar navbar-expand-lg fixed-top">
         <!-- Brand -->
         <div class="container">
-            <a class="navbar-brand" href="#">Welcome:
-                <?php echo $first_name; ?>
+            <a href="#"
+                style="display: flex; justify-content: center; align-items: center; width: 4.5rem; height: 4.5rem; overflow: hidden;">
+                <img src="./img1/logo.png" alt="logo" style="max-width: 100% !important; max-height: 100% !important;">
             </a>
 
             <!-- Toggler/collapsibe Button -->
@@ -78,15 +74,7 @@ if (mysqli_num_rows($qry) > 0) {
                         }
                         ?>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-scroll-nav="2" href="#screenshots">Screenshots</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-scroll-nav="3" href="#testimonials">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-scroll-nav="4" href="#pricing">Pricing</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" data-scroll-nav="5" href="#contact">Contact</a>
                     </li>
@@ -99,20 +87,22 @@ if (mysqli_num_rows($qry) > 0) {
     </nav>
 
     <!--Home section start-->
-    <section class="home d-flex align-items-center" id="home" data-scroll-index="0">
+    <section class="home d-flex  h-full  align-items-center" id="home" data-scroll-index="0">
         <div class="effect-wrap">
             <i class="fas fa-plus effect effect-1"></i>
             <i class="fas fa-plus effect effect-2"></i>
             <i class="fas fa-circle-notch effect effect-3"></i>
         </div>
-        <div class="container">
+        <div class="container h-full">
             <div class="row align-items-center">
                 <div class="col-md-7">
                     <div class="home-text">
-                        <h1>Best Mobile App For Your Business</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi voluptatem aliquid dignissimos blanditiis, iste at impedit, velit earum harum
-                            corrupti odio non? Facere, sequi repellat. </p>
+                        <h1>Welcome to VirtualRep, <?php echo $first_name; ?></h1>
+                        <p>Congratulations on joining VirtualRep! You are now part of a dynamic platform where you can
+                            earn good money by representing companies in online meetings. Check your dashboard for new
+                            job assignments matched to your profile.
+
+                        </p>
                         <div class="home-btn">
                             <a href="<?php echo ($_SESSION['Role'] === 'admin') ? './task/admin_dashboard.php' : './task/user_dashboard.php'; ?>"
                                 target="_blank" class="btn btn-1">Dashboard</a>
@@ -132,140 +122,6 @@ if (mysqli_num_rows($qry) > 0) {
     </section>
     <!--Home section End-->
 
-    <!-- Features section Start -->
-    <section class="features section-padding" id="features" data-scroll-index="1">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>Awesome <span>Features</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="owl-carousel features-carousel">
-                    <div class="features-item">
-                        <div class="icon"><i class="fas fa-code"></i></div>
-                        <h3>Clean Code</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
-                    </div>
-                    <div class="features-item">
-                        <div class="icon"><i class="fas fa-edit"></i></div>
-                        <h3>Auto Install System</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
-                    </div>
-                    <div class="features-item">
-                        <div class="icon"><i class="fas fa-paint-brush"></i></div>
-                        <h3>Pixel perfect Design</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
-                    </div>
-                    <div class="features-item">
-                        <div class="icon"><i class="fas fa-check"></i></div>
-                        <h3>Fast Load App</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, possimus ipsam ullam
-                            itaque commodi </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Features section End -->
-
-    <!-- fun factes section start -->
-    <section class="fun-facts section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-5">
-                    <div class="fun-facts-img text-center">
-                        <img src="img1/app-screenshots/2.png" alt="Fun Facts">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-7">
-                    <div class="section-title">
-                        <h2>Fun <span>Facts</span> </h2>
-                    </div>
-                    <div class="fun-facts-text">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio quibusdam ex ea dolorum
-                            laudantium asperiores consequuntur et maiores cupiditate repellendus. Architecto expedita
-                            sit at ad sed aliquid suscipit obcaecati vero?</p>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="fun-fact-item style-1">
-                                    <h3>
-                                        <?php echo $data; ?>
-                                    </h3>
-                                    <span>Downloads</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="fun-fact-item style-2">
-                                    <h3>
-                                        <?php echo $amount; ?>
-                                    </h3>
-                                    <span>Likes</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="fun-fact-item style-3">
-                                    <h3>500</h3>
-                                    <span>Star Rate</span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="fun-fact-item style-4">
-                                    <h3>150</h3>
-                                    <span>AWARDS</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- fun factes section End -->
-
-
-    <!-- App screenshots section start -->
-    <section class="app-screenshots section-padding" data-scroll-index="2" id="screenshots">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>App <span>Screenshots</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="owl-carousel screenshots-carousel">
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/1.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/2.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/3.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/1.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/2.png" alt="screenshots">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="img1/app-screenshots/3.png" alt="screenshots">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- App screenshots section End -->
-
-
     <!-- video pupup start -->
     <div class="video-popup" onclick="video_play()">
         <div class="video-popup-inner">
@@ -280,44 +136,39 @@ if (mysqli_num_rows($qry) > 0) {
     <!-- video pupup End -->
 
     <!-- App Download Section Start -->
-    <section class="app-download section-padding" data-scroll-index="3">
-        <div class="container">
+    <section class=" section-padding bg-white" data-scroll-index="3">
+        <div class="container ">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section-title">
-                        <h2>Download <span>App</span> </h2>
+                        <h2>Check Your <span>Dashboard</span> </h2>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
                     <div class="app-download-item">
-                        <i class="fab fa-google-play"></i>
-                        <h3>Google Play</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem deleniti quia
-                            excepturi dicta. Ipsum adipisci veniam ullam assumenda, vero vitae iusto dolore! Esse
-                            voluptatem soluta maxime iure eaque doloremque!</p>
-                        <a href="#" class="btn btn-2">Download Now</a>
+                        <h3>Be Professional</h3>
+                        <p>Always maintain a professional demeanor during meetings to build a good reputation and
+                            receive positive feedback.
+
+                        </p>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="app-download-item">
-                        <i class="fab fa-apple"></i>
-                        <h3>Apple Store</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem deleniti quia
-                            excepturi dicta. Ipsum adipisci veniam ullam assumenda, vero vitae iusto dolore! Esse
-                            voluptatem soluta maxime iure eaque doloremque!</p>
-                        <a href="#" class="btn btn-2">Download Now</a>
+                        <h3>Upcoming Meetings</h3>
+                        <p>Stay updated with your scheduled meetings and prepare accordingly.
+                            Payment Status: Track your earnings and payment status easily.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="app-download-item">
-                        <i class="fab fa-windows"></i>
-                        <h3>Microsoft Store</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem deleniti quia
-                            excepturi dicta. Ipsum adipisci veniam ullam assumenda, vero vitae iusto dolore! Esse
-                            voluptatem soluta maxime iure eaque doloremque!</p>
-                        <a href="#" class="btn btn-2">Download Now</a>
+                        <h3>Complete Your Profile</h3>
+                        <p>Make sure your profile is complete and up-to-date to increase your chances of getting matched
+                            with more assignments.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -325,346 +176,6 @@ if (mysqli_num_rows($qry) > 0) {
         </div>
     </section>
     <!-- App Download Section End -->
-
-    <!-- how it works section start -->
-    <section class="how-it-works section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>How It <span>Works</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="how-it-works-item line-right">
-                        <div class="step">1</div>
-                        <h3>Download</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="how-it-works-item line-right">
-                        <div class="step">2</div>
-                        <h3>Create Profile</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="how-it-works-item line-right">
-                        <div class="step">3</div>
-                        <h3>Search Product</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="how-it-works-item">
-                        <div class="step">4</div>
-                        <h3>Order</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- how it works section End -->
-
-    <!-- Testimonials section start -->
-    <section class="testimonials section-padding" data-scroll-index="3" id="testimonials">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>What Our <span>Client</span> Say </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="owl-carousel testimonials-carousel">
-                    <div class="testimonials-item">
-                        <div class="img-box">
-                            <img src="img1/testimonial/1.jpg" alt="testimonials">
-                            <i class="fas fa-quote-right"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                    </div>
-                    <div class="testimonials-item">
-                        <div class="img-box">
-                            <img src="img1/testimonial/1.jpg" alt="testimonials">
-                            <i class="fas fa-quote-right"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                    </div>
-                    <div class="testimonials-item">
-                        <div class="img-box">
-                            <img src="img1/testimonial/3.jpg" alt="testimonials">
-                            <i class="fas fa-quote-right"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                    </div>
-                    <div class="testimonials-item">
-                        <div class="img-box">
-                            <img src="img1/testimonial/3.jpg" alt="testimonials">
-                            <i class="fas fa-quote-right"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam delectus at nemo possimus
-                            quibusdam. Odit, blanditiis, sunt tempore aut dolor </p>
-                        <h3>Hatem Saadany</h3>
-                        <span>UI Designer</span>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Testimonials section End -->
-
-    <!-- Pricing section start -->
-    <section class="pricing section-padding" data-scroll-index="4" id="pricing">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>pricing <span>Plan</span> </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-plan">
-                        <div class="pricing-header">
-                            <h3>Basic</h3>
-                        </div>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="price">99</span>
-                            <span class="period">/monthly</span>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="" class="btn btn-2">Get started</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-plan">
-                        <div class="pricing-header">
-                            <h3>Basic</h3>
-                        </div>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="price">99</span>
-                            <span class="period">/monthly</span>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="" class="btn btn-2">Get started</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-plan">
-                        <div class="pricing-header">
-                            <h3>Premium</h3>
-                        </div>
-                        <div class="pricing-price">
-                            <span class="currency">$</span>
-                            <span class="price">99</span>
-                            <span class="period">/monthly</span>
-                        </div>
-                        <div class="pricing-body">
-                            <ul>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                                <li><i class="fas fa-check"></i>5 GB Bandwidth</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <a href="" class="btn btn-2">Get started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Pricing section End -->
-
-    <!-- Team Section Start -->
-    <section class="team section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>Team <span>Member</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="owl-carousel team-carousel">
-                    <div class="team-item">
-                        <img src="img1/team/3.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/4.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/3.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/4.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="img1/team/3.jpg" alt="Team">
-                        <h3>Hatem Bassem</h3>
-                        <span>UI Designer</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- Team Section End -->
-
-    <!-- Faq section Start -->
-    <section class="faq section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-title">
-                        <h2>Frequently <span>Asked</span> Queries</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div id="accordion">
-                        <div class="accordion-item">
-                            <div class="accordion-header" data-toggle="collapse" data-target="#collapse-01">
-                                <h3>100% Fluid Responsive - Fits any device perfectly</h3>
-                            </div>
-                            <div class="collapse show" id="collapse-01" data-parent="#accordion">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <div class="accordion-header collapsed" data-toggle="collapse" data-target="#collapse-02">
-                                <h3>Clean Code</h3>
-                            </div>
-                            <div class="collapse" id="collapse-02" data-parent="#accordion">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="accordion-item">
-                            <div class="accordion-header collapsed" data-toggle="collapse" data-target="#collapse-03">
-                                <h3>Flat, modern and clean Design</h3>
-                            </div>
-                            <div class="collapse" id="collapse-03" data-parent="#accordion">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header collapsed" data-toggle="collapse" data-target="#collapse-04">
-                                <h3>Custom Font support</h3>
-                            </div>
-                            <div class="collapse" id="collapse-04" data-parent="#accordion">
-                                <div class="accordion-body">
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum laudantium eum
-                                        ipsum ipsam quae vitae aspernatur autem unde praesentium? Ea incidunt animi quod
-                                        amet voluptates deserunt? Esse voluptatum sint enim.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Faq section End -->
 
     <!-- Contact section start -->
     <section class="contact section-padding" data-scroll-index="5">
@@ -683,18 +194,18 @@ if (mysqli_num_rows($qry) > 0) {
                         <div class="contact-info-item">
                             <i class="fas fa-location-arrow"></i>
                             <h4>Company Location</h4>
-                            <p>199 xyz mm, mmmmmm</p>
+                            <p>845 Linn Ave, Oregon City, OR 97045</p>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-envelope"></i>
                             <h4>Write to us at </h4>
-                            <p>info@gmail.com</p>
+                            <p>lemtukeicyprian@gmail.com</p>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>
                             <h4>Call us on</h4>
                             <p>
-                                <?php echo $phone; ?>
+                                +254 712 345 678
                             </p>
                         </div>
                     </div>
@@ -758,8 +269,9 @@ if (mysqli_num_rows($qry) > 0) {
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-col">
                         <h3>About Us</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et nihil, quasi provident saepe,
-                            omnis commodi voluptatibus fugiat eaque fuga eveniet inventore </p>
+                        <p>Join VirtualRep and start making good money by representing Individuals or companies in
+                            online meetings!
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -772,12 +284,7 @@ if (mysqli_num_rows($qry) > 0) {
                             <li>
                                 <a href="#">Term & condition</a>
                             </li>
-                            <li>
-                                <a href="#">lates blogs</a>
-                            </li>
-                            <li>
-                                <a href="#">App services</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -788,19 +295,8 @@ if (mysqli_num_rows($qry) > 0) {
                             <li>
                                 <a href="#" data-scroll-nav="0">Home</a>
                             </li>
-                            <li>
-                                <a href="#" data-scroll-nav="1">Fearutes</a>
-                            </li>
-                            <li>
-                                <a href="#" data-scroll-nav="2">Screenshots</a>
-                            </li>
 
-                            <li>
-                                <a href="#" data-scroll-nav="3">Testimonials</a>
-                            </li>
-                            <li>
-                                <a href="#" data-scroll-nav="4">Pricing</a>
-                            </li>
+
                             <li>
                                 <a href="#" data-scroll-nav="5">Contact</a>
                             </li>
@@ -830,7 +326,7 @@ if (mysqli_num_rows($qry) > 0) {
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="copyright-text">&copy;2021 @saadany</p>
+                    <p class="copyright-text">&copy; VirtualRep</p>
                 </div>
             </div>
         </div>
