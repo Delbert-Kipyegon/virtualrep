@@ -36,8 +36,7 @@ while ($taskRow = $taskResult->fetch_assoc()) {
     <div class="container p-4 flex flex-col justify-evenly gap-8 bg-white">
         <div>
             <a href="./user_dashboard.php" class="btn-back bg-main text-white hover:shadow-lg py-2 px-4 rounded ">Back
-                to
-                Dashboard</a>
+                to Dashboard</a>
         </div>
 
         <?php
@@ -110,8 +109,6 @@ while ($taskRow = $taskResult->fetch_assoc()) {
                         <?php
                     }
                     ?>
-
-
                 </div>
                 <?php
                 break; // Stop the loop after finding the task
@@ -143,6 +140,11 @@ while ($taskRow = $taskResult->fetch_assoc()) {
                 </form>
             </div>
 
+            <div class="mt-6">
+                <p>By accepting the job, you agree to our <a href="./termsandconditions.html"
+                        class="text-blue-400 hover:text-blue-500">Terms and Conditions</a>.</p>
+            </div>
+
             <?php
         }
         ?>
@@ -160,9 +162,7 @@ while ($taskRow = $taskResult->fetch_assoc()) {
             document.getElementById('rejectJobBtn').classList.add('bg-gray-500', 'hover:bg-gray-600');
             document.getElementById('rejectJobBtn').classList.remove('bg-red-500', 'hover:bg-red-600');
             document.getElementById('rejectJobBtn').innerText = 'Reject Job';
-            document.getElementById('rejectJobBtn').disabled = false
-
-                ;
+            document.getElementById('rejectJobBtn').disabled = false;
 
             alert('You have accepted the job!');
         }
