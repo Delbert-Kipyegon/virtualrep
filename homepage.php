@@ -199,7 +199,7 @@ if (mysqli_num_rows($qry) > 0) {
                         <div class="contact-info-item">
                             <i class="fas fa-envelope"></i>
                             <h4>Write to us at </h4>
-                            <p>lemtukeicyprian@gmail.com</p>
+                            <p>mail@virtualrep.online</p>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>

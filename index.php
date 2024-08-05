@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Landing Page</title>
+    <title>VirtualRep</title>
     <link rel="stylesheet" href="css1/owl.carousel.min.css">
     <link rel="stylesheet" href="css1/fontAwsome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -446,7 +446,7 @@
                         <div class="contact-info-item">
                             <i class="fas fa-envelope"></i>
                             <h4>Write to us at </h4>
-                            <p>lemtukeicyprian@gmail.com</p>
+                            <p>mail@virtualrep.online</p>
                         </div>
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>
