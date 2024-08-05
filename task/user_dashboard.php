@@ -85,7 +85,7 @@ $totalTasksCount = count($tasks);
 </head>
 
 
-<body class="bg-white font-poppins min-h-[100%] text-black">
+<body class="bg-white h-screen flex flex-col justify-between font-poppins min-h-[100%] text-black">
     <div clas="pb-10">
         <!-- Responsive Navbar -->
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -166,12 +166,7 @@ $totalTasksCount = count($tasks);
             <div class="space-y-4 py-16">
                 <?php if (empty($tasks)): ?>
                     <div class="text-center text-gray-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto mb-4" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 2a8 8 0 00-8 8c0 3.38 2.464 6.197 5.678 6.788.233.885.928 1.571 1.769 1.791C8.443 19.094 9.213 20 10 20s1.557-.906 2.553-1.421c.841-.22 1.536-.906 1.769-1.791C17.536 16.197 20 13.38 20 10a8 8 0 00-8-8zM8 11a1 1 0 11-2 0 1 1 0 012 0zm2 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z"
-                                clip-rule="evenodd" />
-                        </svg>
+                        <img src="Images/notasks.jpg" alt="no tasks" />
                         <p>No tasks available</p>
                     </div>
                 <?php else: ?>
@@ -229,7 +224,9 @@ $totalTasksCount = count($tasks);
         </div>
     </div>
 
-    <?php include 'footer.php'; ?>
+    <div class="footer">
+        <?php include 'footer.php'; ?>
+    </div>
 
     <script>
         function toggleMenu() {

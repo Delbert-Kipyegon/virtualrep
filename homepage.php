@@ -105,35 +105,21 @@ if (mysqli_num_rows($qry) > 0) {
                         </p>
                         <div class="home-btn">
                             <a href="<?php echo ($_SESSION['Role'] === 'admin') ? './task/admin_dashboard.php' : './task/user_dashboard.php'; ?>"
-                                target="_blank" class="btn btn-1">Dashboard</a>
-                            <button type="button" class="btn btn-1 video-play-button" onclick="video_play()"><i
-                                    class="fas fa-play"></i></button>
+                                class="btn btn-1">Dashboard</a>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5 text-center">
                     <div class="home-img">
                         <div class="circle"></div>
-                        <img class="landing-img" src="./zoom-fatique1.png" alt="Landing">
+                        <img class="landing-img" src="./img1/zoom-fatique1.png" alt="Landing">
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--Home section End-->
-
-    <!-- video pupup start -->
-    <div class="video-popup" onclick="video_play()">
-        <div class="video-popup-inner">
-            <i class="fas fa-times video-popup-close"></i>
-            <div class="iframe-box">
-                <iframe id="player-1" src="https://www.youtube.com/embed/45izX9pkiiw"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-    <!-- video pupup End -->
 
     <!-- App Download Section Start -->
     <section class=" section-padding bg-white" data-scroll-index="3">
@@ -334,11 +320,11 @@ if (mysqli_num_rows($qry) > 0) {
     <!-- Footer section End -->
 
     <!-- Toggle Theme start ligt and dark mode  -->
-    <div class="toggle-theme">
+    <!-- <div class="toggle-theme">
         <i class="fas">
 
         </i>
-    </div>
+    </div> -->
     <!-- Toggle Theme End ligt and dark mode-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -108,36 +108,32 @@
             <div class="row">
                 <div class="owl-carousel features-carousel">
                     <div class="features-item">
-                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <div class="icon"><i class="fas fa-dollar-sign"></i></div>
                         <h3>Earn Good Money</h3>
-                        <p>Represent companies in Zoom calls, Google Meet sessions, and more.
-                        </p>
+                        <p>Represent companies in Zoom calls, Google Meet sessions, and more.</p>
                     </div>
                     <div class="features-item">
-                        <div class="icon"><i class="fas fa-edit"></i></div>
+                        <div class="icon"><i class="fas fa-clock"></i></div>
                         <h3>Work Flexibly</h3>
-                        <p>Enjoy the freedom of working from home, choosing assignments that fit your schedule.
-                        </p>
+                        <p>Enjoy the freedom of working from home, choosing assignments that fit your schedule.</p>
                     </div>
                     <div class="features-item">
-                        <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                        <div class="icon"><i class="fas fa-chart-line"></i></div>
                         <h3>Professional Growth</h3>
-                        <p>Gain experience by handling various types of meetings and representing
-                            organizations.
-                        </p>
+                        <p>Gain experience by handling various types of meetings and representing organizations.</p>
                     </div>
                     <div class="features-item">
-                        <div class="icon"><i class="fas fa-check"></i></div>
+                        <div class="icon"><i class="fas fa-lock"></i></div>
                         <h3>Secure Transactions</h3>
                         <p>Our payment process via PayPal is safe, quick, and reliable. Only the best for the best
-                            people.
-                        </p>
+                            people.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Features section End -->
+
 
     <!-- fun factes section start -->
     <section class="fun-facts section-padding">
@@ -187,19 +183,6 @@
         </div>
     </section>
     <!-- fun factes section End -->
-
-    <!-- video pupup start -->
-    <div class="video-popup" onclick="video_play()">
-        <div class="video-popup-inner">
-            <i class="fas fa-times video-popup-close"></i>
-            <div class="iframe-box">
-                <iframe id="player-1" src="https://www.youtube.com/embed/45izX9pkiiw"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-    <!-- video pupup End -->
 
 
     <!-- how it works section start -->
@@ -269,7 +252,7 @@
                             <i class="fas fa-quote-right"></i>
                         </div>
                         <p>Joining VirtualRep has been a game-changer for our company. We can now manage multiple client
-                            meetings simultaneously, thanks to their professional representatives.</p>
+                            meetings simultaneously and efficiently.</p>
                         <h3>John Doe</h3>
                         <span>CEO, Tech Innovators</span>
                         <div class="rating">
@@ -585,12 +568,12 @@
     </footer>
     <!-- Footer section End -->
 
-    <!-- Toggle Theme start ligt and dark mode  -->
+    <!-- Toggle Theme start ligt and dark mode 
     <div class="toggle-theme">
         <i class="fas">
 
         </i>
-    </div>
+    </div> -->
     <!-- Toggle Theme End ligt and dark mode-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -87,8 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 
-<body class="bg-gray-10 font-poppins">
-    <?php include 'nav.php'; ?>
+<body class="bg-gray-10 font-poppins h-screen flex flex-col justify-between">
+
+    <div class="nav">
+        <?php include 'nav.php'; ?>
+    </div>
 
     <div class="container mx-auto mt-4 p-4">
         <div class="mb-8">
@@ -187,7 +190,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <?php include 'footer.php'; ?>
+    <div class="footer">
+        <?php include 'footer.php'; ?>
+    </div>
 
 
 
