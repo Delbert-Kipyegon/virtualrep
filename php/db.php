@@ -1,7 +1,7 @@
 <?php
-$servername = "109.70.148.40";
-$username = "autoship";
-$password = "0Ub73i4]PnoBA@";
+$servername = "localhost";
+$username = "autoship_test";
+$password = "Fq+#0kET;q=6";
 $dbname = "autoship_virtualrep";
 
 // Create connection
