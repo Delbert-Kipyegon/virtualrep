@@ -1,12 +1,8 @@
 <?php
 $servername = "localhost";
-// $username = "autoship_test";
-// $password = "Fq+#0kET;q=6";
-// $dbname = "autoship_virtualrep";
-
-$username = "root";
-$password = "";
-$dbname = "form";
+$username = "autoship_test";
+$password = "Fq+#0kET;q=6";
+$dbname = "autoship_virtualrep";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
