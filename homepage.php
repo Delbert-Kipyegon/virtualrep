@@ -247,7 +247,6 @@ if (mysqli_num_rows($qry) > 0) {
     </section>
     <!-- Contact section End -->
 
-
     <!-- Footer section start -->
     <footer class="footer">
         <div class="container">
@@ -268,7 +267,7 @@ if (mysqli_num_rows($qry) > 0) {
                                 <a href="#">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#">Term & condition</a>
+                                <a href="termsandconditions.html">Term & condition</a>
                             </li>
 
                         </ul>
