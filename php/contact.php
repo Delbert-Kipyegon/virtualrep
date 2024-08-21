@@ -73,9 +73,9 @@ sendEmail($name, $email, $phone, $subject, $message);
 
 // Redirect based on unique_id
 if (empty($unique_id)) {
-    header("Location: ../homepage.php");
+    header("Location: ../index.php");
 } else {
-    header("Location: ../register.html");
+    header("Location: ../homepage.php");
 }
 exit;
 ?>

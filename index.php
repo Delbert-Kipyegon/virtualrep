@@ -18,7 +18,6 @@
 
 <body>
 
-
     <!--Navbar-->
     <nav style="background: #a200ff; " class="navbar navbar-expand-lg fixed-top">
         <!-- Brand -->
@@ -320,9 +319,6 @@
     </section>
     <!-- Testimonials section End -->
 
-
-
-
     <!-- Faq section Start -->
     <section class="faq section-padding">
         <div class="container">
@@ -488,7 +484,6 @@
         </div>
     </section>
     <!-- Contact section End -->
-
 
     <!-- Footer section start -->
     <footer class="footer">
