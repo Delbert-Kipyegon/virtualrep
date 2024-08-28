@@ -2,6 +2,7 @@
 // Start the session and include the database connection
 session_start();
 include '../php/db.php';  // Adjust the path as per your project structure
+require_once "../php/mail.php"; // Include the mail script
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Fetch the task ID and comments from the POST data
@@ -35,8 +36,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // Send email notification to admin
+    $admin_email = "users@virtualrep.online"; // Admin's email address
+    $fname = $_SESSION['fname']; // Assuming user's first name is stored in the session
+    $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : ''; // Assuming user's phone is stored in the session
+    $subject = "Task ID $task_id - Completion Notification";
+
+    $message = "Dear Admin,\n\n" .
+        "This is to inform you that the task with ID $task_id has been completed by the user.\n" .
+        "User Email: " . $_SESSION['email'] . "\n" .
+        "Comments: " . $comments . "\n\n" .
+        "Please log in to the admin dashboard for more details.\n\n" .
+        "Best regards,\n" .
+        "Virtual Rep";
+
+    sendEmail($fname, $admin_email, $phone, $subject, $message);
+
     // Set a success message and redirect to the dashboard
-    $_SESSION['message'] = 'Task submitted successfully and notification sent!';
+    $_SESSION['message'] = 'Task submitted successfully, notification sent, and email sent to admin!';
     header("Location: user_dashboard.php");
     exit();
 }

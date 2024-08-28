@@ -267,7 +267,7 @@ if (mysqli_num_rows($qry) > 0) {
                                 <a href="#">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="termsandconditions.html">Term & condition</a>
+                                <a href="./termsandconditions.html">Term & condition</a>
                             </li>
 
                         </ul>
