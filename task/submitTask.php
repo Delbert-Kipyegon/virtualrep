@@ -21,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Assuming you're storing the user's email in the session or can retrieve it otherwise
-    $user_email = $_SESSION['email']; // Replace with actual user email retrieval method
+    // Retrieve user's email from session
+    $user_email = $_SESSION['email']; // User's email stored in the session
 
     // Add a notification
     $notifSql = "INSERT INTO notifications (task_id, user_email, status, comments) VALUES (?, ?, 'completed', ?)";
@@ -38,14 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send email notification to admin
     $admin_email = "users@virtualrep.online"; // Admin's email address
-    $fname = $_SESSION['fname']; // Assuming user's first name is stored in the session
+    $fname = isset($_SESSION['fname']) ? $_SESSION['fname'] : ''; // Assuming user's first name is stored in the session
     $phone = isset($_SESSION['phone']) ? $_SESSION['phone'] : ''; // Assuming user's phone is stored in the session
     $subject = "Task ID $task_id - Completion Notification";
 
     $message = "Dear Admin,\n\n" .
         "This is to inform you that the task with ID $task_id has been completed by the user.\n" .
-        "User Email: " . $_SESSION['email'] . "\n" .
-        "Comments: " . $comments . "\n\n" .
+        "User Email: $user_email\n" .
+        "Comments: $comments\n\n" .
         "Please log in to the admin dashboard for more details.\n\n" .
         "Best regards,\n" .
         "Virtual Rep";
