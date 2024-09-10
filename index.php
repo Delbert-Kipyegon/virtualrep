@@ -64,7 +64,7 @@
     </nav>
 
     <!--Home section start-->
-    <section class="home h-screen d-flex align-items-center" id="home" data-scroll-index="0">
+    <section class="home d-flex align-items-center" id="home" data-scroll-index="0">
         <div class="effect-wrap">
             <i class="fas fa-plus effect effect-1"></i>
             <i class="fas fa-plus effect effect-2"></i>
