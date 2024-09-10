@@ -63,7 +63,7 @@
     </nav>
 
     <!--Home section start-->
-    <section class="home d-flex align-items-center" id="home" data-scroll-index="0">
+    <section class="home h-screen d-flex align-items-center" id="home" data-scroll-index="0">
         <div class="effect-wrap">
             <i class="fas fa-plus effect effect-1"></i>
             <i class="fas fa-plus effect effect-2"></i>
@@ -252,7 +252,7 @@
                         </div>
                         <p>Joining VirtualRep has been a game-changer for our company. We can now manage multiple client
                             meetings simultaneously and efficiently.</p>
-                        <h3>John Doe</h3>
+                        <h3>Nickson Rick</h3>
                         <span>CEO, Tech Innovators</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -269,7 +269,7 @@
                         </div>
                         <p>VirtualRep's service has significantly improved our client engagement. Their representatives
                             are professional and handle meetings efficiently.</p>
-                        <h3>Jane Smith</h3>
+                        <h3>Karen Smith</h3>
                         <span>COO, Business Solutions</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -286,7 +286,7 @@
                         </div>
                         <p>We've seen a noticeable increase in client satisfaction since we started using VirtualRep.
                             Their reps are well-trained and always on point.</p>
-                        <h3>Emily Johnson</h3>
+                        <h3>Emily Andreas</h3>
                         <span>Marketing Director, Creative Agency</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -303,7 +303,7 @@
                         </div>
                         <p>VirtualRep has been a valuable partner for us. Their representatives handle our meetings
                             professionally, allowing us to focus on core business activities.</p>
-                        <h3>Michael Brown</h3>
+                        <h3>Michael Miller</h3>
                         <span>CTO, Digital Enterprises</span>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -430,7 +430,7 @@
                         <div class="contact-info-item">
                             <i class="fas fa-phone"></i>
                             <h4>Call us on</h4>
-                            <p> 01234567890 </p>
+                            <p>+15034549999</p>
                         </div>
                     </div>
                 </div>

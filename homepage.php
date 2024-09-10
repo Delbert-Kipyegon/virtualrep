@@ -87,7 +87,7 @@ if (mysqli_num_rows($qry) > 0) {
     </nav>
 
     <!--Home section start-->
-    <section class="home d-flex  h-full  align-items-center" id="home" data-scroll-index="0">
+    <section class="home d-flex  h-screen  align-items-center" id="home" data-scroll-index="0">
         <div class="effect-wrap">
             <i class="fas fa-plus effect effect-1"></i>
             <i class="fas fa-plus effect effect-2"></i>
@@ -191,7 +191,7 @@ if (mysqli_num_rows($qry) > 0) {
                             <i class="fas fa-phone"></i>
                             <h4>Call us on</h4>
                             <p>
-                                +254 712 345 678
+                                +15034549999
                             </p>
                         </div>
                     </div>
