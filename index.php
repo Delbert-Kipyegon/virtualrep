@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css1/style.css">
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
 </head>
 
 <body>
@@ -569,7 +570,13 @@
 
         </i>
     </div> -->
+
     <!-- Toggle Theme End ligt and dark mode-->
+
+    <!-- Whatsapp Chat Widget -->
+    <div class="elfsight-app-77252ff5-21ca-4064-a7c0-d2663e325bd4" data-elfsight-app-lazy></div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js1/owl.carousel.min.js"></script>
